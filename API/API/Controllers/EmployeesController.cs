@@ -49,30 +49,6 @@ namespace API.Controllers
 
             try
             {
-                /* // - --  -- -carar ribet satu
-                 var status = 0;
-                 var result = employeeRepository.Get(NIK);
-                 var message = "";
-
-                 if (result != null)
-                 {
-                     status = StatusCodes.Status200OK;
-                     message = "Data Ditemukan";
-                 }
-                 else {
-                     status = StatusCodes.Status204NoContent;
-                     message= "Data Tidak Ditemukan";
-                 }
-                 var json = new 
-                 {
-                     status,
-                     result,
-                     message
-                 };
-                 string jsonString = JsonConvert.SerializeObject(json);
-                 return Ok(json);*/
-
-                //--------------cara simple 
                 var result = employeeRepository.Get(NIK);
                 if (result != null)
                 {
@@ -95,7 +71,6 @@ namespace API.Controllers
         {
             try
             {
-
                 var result = employeeRepository.Insert(employee);
                 if (result > 0)
                 {

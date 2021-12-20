@@ -76,46 +76,6 @@ namespace API.Repository
             myContext.Entry(employee).State = EntityState.Modified;
             return myContext.SaveChanges();
 
-
-
-
-            //eror saaat validasi email dan phonsel
-            /*var checkData = myContext.Employees.Find(NIK);
-        if (checkData == null)
-        {
-            return 0;
-        }
-        else
-        {
-            if (checkData != null)
-            {
-                myContext.Entry(checkData).State = EntityState.Detached;
-            }
-
-
-            var checkEmailPhone = CheckEmailAndPhone(employee);
-            if (checkData.Email != employee.Email || checkData.Phone != employee.Phone)
-            {
-                if (checkEmailPhone != 1)
-                {
-                    return checkEmailPhone;
-                }
-                else
-                {
-                    employee.NIK = NIK;
-                    myContext.Entry(employee).State = EntityState.Modified;
-                    return myContext.SaveChanges();
-                }
-            }
-            else
-            {
-                employee.NIK = NIK;
-                myContext.Entry(employee).State = EntityState.Modified;
-                return myContext.SaveChanges();
-            }
-
-        }*/
-
         }
         public int CheckEmailAndPhone(Employee employee)
         {
