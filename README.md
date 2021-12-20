@@ -4,23 +4,25 @@ MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
 
 # DAILY TASK REPORT
 
-### 0. KONFIGURASI SECURITY MS SQL MANAGEMENT (MSSMS)
+### 1. KONFIGURASI SECURITY MS SQL MANAGEMENT (MSSMS)
 
 # ![](images/1.png)
 
 Gambar 1. Konfigurasi password acces user dengan id=&#39;sa&#39; MS SQL Server pada _Security -\&gt; Login -\&gt; user_
 
-![](RackMultipart20211220-4-1lsw413_html_8e44e6db3d1cef8.png)
+# ![](images/2.png)
+
 
 Gambar 2. Konfigurasi perizinan acces user dengan id=&#39;sa&#39; ke database
 
-![](RackMultipart20211220-4-1lsw413_html_b10a196f56c0f71d.png)
+# ![](images/3.png)
+
 
 Gambar 3. Konfigurasi server security propertie MS SQL agar dapat di akses local network
 
-### 1. MEMBUAT PROJECT BARU
+### 2. MEMBUAT PROJECT BARU
 
-![](RackMultipart20211220-4-1lsw413_html_b0b72fc8719874ca.png)
+# ![](images/4.png)
 
 Gambar 4. Membuat Project Baru dengan template _ASP .NET Core WEB API_ dan memastikan menggunakan target _Framework .NET Core 3.1 (Long-term Support)_
 
