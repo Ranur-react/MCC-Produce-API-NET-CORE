@@ -26,37 +26,37 @@ Gambar 3. Konfigurasi server security propertie MS SQL agar dapat di akses local
 
 Gambar 4. Membuat Project Baru dengan template _ASP .NET Core WEB API_ dan memastikan menggunakan target _Framework .NET Core 3.1 (Long-term Support)_
 
-### 1. KONFIGURASI SQL DATABASE KONEKSI PADA &quot;APPSETTINGS.JSON&quot;
+### 3. KONFIGURASI SQL DATABASE KONEKSI PADA &quot;APPSETTINGS.JSON&quot;
 
-![](RackMultipart20211220-4-1lsw413_html_2f1ec9bbe88c49a3.png)
+# ![](images/5.png)
 
 Gambar 5. Menambahkan attribut _servername ,database,user id,_ dan _password_ sebagaikonfigurasi koneksi dengan MS SQL.
 
 1.
 # CREATE MODEL AND DECLARATE ATTRIBUTE, KEY, AND TABLE NAME
 
-![](RackMultipart20211220-4-1lsw413_html_8cbff95870fb65e5.png)
+# ![](images/6.png)
 
 Gambar 6. membuat Folder _Models_ lalu menambahkan Class Employee untuk sebagai tempat mendeklarasikan atribut dari beberapa entity yang digunakan.
 
 1.
 # INSTALL NUGETPLUGIN YANG DIBUTUHKAN
 
-![](RackMultipart20211220-4-1lsw413_html_6e4fc482672705a6.png)
+# ![](images/7.png)
 
 Gambar 7. Menginstall beberapa library yang dibutuhkan project saat mengenal api.
 
 1.
 # MEBUAT CONTEXT FOLDER -\&gt; AND MYCONTEXT.CS FILES YANG BERISI TABLE DECLARATE DAN CONSTRUCTOR UNTUK TURUNAN DBCONTEXT
 
-![](RackMultipart20211220-4-1lsw413_html_7e83f6c93a6aa433.png)
+# ![](images/8.png)
 
 Gambar 8. Membuat Folder Context lalu menambahkan clas MyContext pada project untuk mendeklarasikan entity/ table database yang digunakan pada project menggunakan fungis turunan dari DbContex dan konfigurasinya.
 
 1.
 # KONFIGURASI STARTUP.CS FILES UNTUK DECALARET CONTEXT WITH APPSETTING.JSON PADA CONFIGURESERVICES.
 
-![](RackMultipart20211220-4-1lsw413_html_8621ac38215f0556.png)
+# ![](images/9.png)
 
 Gambar 9. Menambahkan beberapa Service yag diguanakan seperti Repository , Context dll agar setiap fungsi class add on pada project saling terhubung
 
