@@ -4,11 +4,9 @@ MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
 
 # DAILY TASK REPORT
 
-![](RackMultipart20211220-4-1lsw413_html_a0243959dbc46b8f.png)
-
 ### 0. KONFIGURASI SECURITY MS SQL MANAGEMENT (MSSMS)
 
-# ![](RackMultipart20211220-4-1lsw413_html_9afa84bbf1483da.png)
+# ![](https://keep.google.com/u/0/media/v2/1sRYggul9L30IRk-hq1ixeF1vvLMcbXQl4TLqloJP7CbKNdwULxTSzyKsyEqc/16UFqwpgcaBDPUy31fhzU30qLrGO2N6y064wsdweXkgqzsx11g_ts_jcV0BvnyGE?sz=512&accept=image%2Fgif%2Cimage%2Fjpeg%2Cimage%2Fjpg%2Cimage%2Fpng%2Cimage%2Fwebp)
 
 Gambar 1. Konfigurasi password acces user dengan id=&#39;sa&#39; MS SQL Server pada _Security -\&gt; Login -\&gt; user_
 
