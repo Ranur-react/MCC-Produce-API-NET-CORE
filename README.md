@@ -6,7 +6,7 @@ MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
 
 ### 0. KONFIGURASI SECURITY MS SQL MANAGEMENT (MSSMS)
 
-# ![](https://lh3.googleusercontent.com/keep-bbsk/AGk0z-MdGa_o4ezZhiT0K0F_kmKDwPkjkA6A8qiV5HsS23JTnx5q4kev4mfX_-FdpwO-1obgNgyr7IZlFuhn3tP6UNqJ-Hz_PnCrP1EInw=s512)
+# ![](images/1.png)
 
 Gambar 1. Konfigurasi password acces user dengan id=&#39;sa&#39; MS SQL Server pada _Security -\&gt; Login -\&gt; user_
 
