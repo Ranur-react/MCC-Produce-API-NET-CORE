@@ -32,29 +32,25 @@ Gambar 4. Membuat Project Baru dengan template _ASP .NET Core WEB API_ dan memas
 
 Gambar 5. Menambahkan attribut _servername ,database,user id,_ dan _password_ sebagaikonfigurasi koneksi dengan MS SQL.
 
-1.
-# CREATE MODEL AND DECLARATE ATTRIBUTE, KEY, AND TABLE NAME
+### 4. CREATE MODEL AND DECLARATE ATTRIBUTE, KEY, AND TABLE NAME
 
 # ![](images/6.png)
 
 Gambar 6. membuat Folder _Models_ lalu menambahkan Class Employee untuk sebagai tempat mendeklarasikan atribut dari beberapa entity yang digunakan.
 
-1.
-# INSTALL NUGETPLUGIN YANG DIBUTUHKAN
+### 5. INSTALL NUGETPLUGIN YANG DIBUTUHKAN
 
 # ![](images/7.png)
 
 Gambar 7. Menginstall beberapa library yang dibutuhkan project saat mengenal api.
 
-1.
-# MEBUAT CONTEXT FOLDER -\&gt; AND MYCONTEXT.CS FILES YANG BERISI TABLE DECLARATE DAN CONSTRUCTOR UNTUK TURUNAN DBCONTEXT
+### 6. MEBUAT CONTEXT FOLDER -\&gt; AND MYCONTEXT.CS FILES YANG BERISI TABLE DECLARATE DAN CONSTRUCTOR UNTUK TURUNAN DBCONTEXT
 
 # ![](images/8.png)
 
 Gambar 8. Membuat Folder Context lalu menambahkan clas MyContext pada project untuk mendeklarasikan entity/ table database yang digunakan pada project menggunakan fungis turunan dari DbContex dan konfigurasinya.
 
-1.
-# KONFIGURASI STARTUP.CS FILES UNTUK DECALARET CONTEXT WITH APPSETTING.JSON PADA CONFIGURESERVICES.
+### 7. KONFIGURASI STARTUP.CS FILES UNTUK DECALARET CONTEXT WITH APPSETTING.JSON PADA CONFIGURESERVICES.
 
 # ![](images/9.png)
 
