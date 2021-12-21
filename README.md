@@ -1,5 +1,6 @@
 MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
 # **SEARCHING API** 
+## DAILY TASK REPORT
 Date: 21 Desember 2021
 
 #### 1. Create new Models "Searching" as attribute objek keyword of searching
@@ -60,7 +61,6 @@ namespace API.Models
 # **PRODUCE API .NET CORE** 
 Date: 20 Desember 2021
 
-# DAILY TASK REPORT
 
 ### 1. KONFIGURASI SECURITY MS SQL MANAGEMENT (MSSMS)
 
