@@ -40,7 +40,8 @@ namespace API.Repository
         {
 
             /*            return myContext.Employees.Find(Name);*/
-            return myContext.Employees.ToList().Where(e => e.FirsthName == search.keyword || e.NIK== search.keyword || e.LastName == search.keyword);
+        /*    return myContext.Employees.ToList().Where(e => e.FirsthName == search.keyword || e.NIK== search.keyword || e.LastName == search.keyword);*/
+            return myContext.Employees.ToList().Where(e => e.FirsthName.Contains(search.keyword, StringComparison.OrdinalIgnoreCase) || e.NIK == search.keyword || e.LastName.Contains(search.keyword, StringComparison.OrdinalIgnoreCase));
         }
 
         public int Insert(Employee employee) //use postman  to test

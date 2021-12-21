@@ -22,11 +22,11 @@ namespace API.Models
 ````
 #### 2. Create Context Query on repository to find data on your Contex Entity
 ````
-        public IEnumerable<Employee> Search(Search search)
+             public IEnumerable<Employee> Search(Search search)
         {
 
-            /*            return myContext.Employees.Find(Name);*/
-            return myContext.Employees.ToList().Where(e => e.FirsthName == search.keyword || e.NIK== search.keyword || e.LastName == search.keyword);
+        /*    return myContext.Employees.ToList().Where(e => e.FirsthName == search.keyword || e.NIK== search.keyword || e.LastName == search.keyword);*/
+            return myContext.Employees.ToList().Where(e => e.FirsthName.Contains(search.keyword, StringComparison.OrdinalIgnoreCase) || e.NIK == search.keyword || e.LastName.Contains(search.keyword, StringComparison.OrdinalIgnoreCase));  //find with LIKE '${v}$'
         }
 
 ````
