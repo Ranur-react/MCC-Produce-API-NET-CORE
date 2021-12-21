@@ -12,6 +12,8 @@ namespace API.Models
     {
         [Key]
         public String NIK{ get; set; }
+        /*[Required()]*/  /*its made that props be important and cant't empty in each diall of classs*/
+        [Required(ErrorMessage = "FirsthName Tidak boleh kosong")]
         public String  FirsthName { get; set; }
         public String  LastName { get; set; }
         public String Phone { get; set; }

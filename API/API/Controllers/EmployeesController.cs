@@ -95,7 +95,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errorMessage = e.Message });
+                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errors = e.Message });
             }
 
         }
