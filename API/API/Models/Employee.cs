@@ -11,15 +11,23 @@ namespace API.Models
     public class Employee
     {
         [Key]
-        public String NIK{ get; set; }
+        public String NIK { get; set; }
         /*[Required()]*/  /*its made that props be important and cant't empty in each diall of classs*/
-        [Required(ErrorMessage = "FirsthName Tidak boleh kosong")]
-        public String  FirsthName { get; set; }
-        public String  LastName { get; set; }
+        /*[Required(ErrorMessage = "FirsthName harus ada data")]*/
+        [StringLength(30,ErrorMessage ="Maximal 30 Karakter")]
+        public String FirsthName { get; set; }
+       /* [FileExtensions(Extensions = "txt,doc,docx,pdf", ErrorMessage = "Please upload valid format")]*/
+        public String LastName { get; set; }
+        [MaxLength(15,ErrorMessage ="Max length 15 Caracter")]
+        [Phone(ErrorMessage ="Pastikan jenis karakter phonsel")]
         public String Phone { get; set; }
         public DateTime BirthDate { get; set; }
+        [Range(4600000, 50000000, ErrorMessage = "Min 4600000 ~ 50000000")]
         public int Salary { get; set; }
+        /*  [RegularExpression(@"[a-z]+[A-Z]", ErrorMessage = "A User Name must consist of lowercase letters")]*/
+        [EmailAddress(ErrorMessage ="Perhatikan dalam penginputan email")]
         public String Email{ get; set; }
+        
         public Gender Gender { get; set; }
      }
 

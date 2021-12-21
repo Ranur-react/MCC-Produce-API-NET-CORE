@@ -66,6 +66,11 @@ namespace API.Controllers
             }
 
         }
+/*        [Route]*/
+        public ActionResult Search(Employee employee)
+        {
+            return Ok(new { status = StatusCodes.Status200OK, result = employee, message = "Pencarian diproses" });
+        }
         [HttpPost]
         public ActionResult Post(Employee employee)
         {
@@ -107,7 +112,7 @@ namespace API.Controllers
                 var result = employeeRepository.Update(NIK, employee);
                 if (result > 0)
                 {
-                   
+
 
                     if (result == 3)
                     {
@@ -131,7 +136,7 @@ namespace API.Controllers
             }
             catch (Exception e)
             {
-                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errorMessage = NIK+"----"+e.Message });
+                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errorMessage = NIK + "----" + e.Message });
             }
         }
 
