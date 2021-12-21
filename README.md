@@ -1,6 +1,64 @@
 MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
+# **SEARCHING API** 
+Date: 20 Desember 2021
 
-# **PRODUCE API .NET CORE**
+#### 1. Create new Models "Searching" as attribute objek keyword of searching
+
+````
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace API.Models
+{
+    public class Search
+    {
+        public String keyword { get; set; }
+    }
+}
+
+````
+#### 2. Create Context Query on repository to find data on your Contex Entity
+````
+        public IEnumerable<Employee> Search(Search search)
+        {
+
+            /*            return myContext.Employees.Find(Name);*/
+            return myContext.Employees.ToList().Where(e => e.FirsthName == search.keyword || e.NIK== search.keyword || e.LastName == search.keyword);
+        }
+
+````
+#### 2. Create new  ActionsResult Method with Route() funtions with custome uri as custome  POST for acces RestAPI
+````
+        [Route("Search")] //its for made that post method can be acces with custome uri
+        [HttpPost]
+        public ActionResult Search(Search search)
+        {
+            try
+            {
+                var result = employeeRepository.Search(search);
+                if (result != null)
+                {
+                    return Ok(new { status = StatusCodes.Status200OK, result = result, message = $"{search.keyword} Pencarian diproses" });
+
+                }
+                else
+                {
+                    return BadRequest(new { status = StatusCodes.Status204NoContent, result, message = "tidak ada indikasi data ditemukan" });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errorMessage = e.Message });
+
+            }
+        }
+````
+
+
+# **PRODUCE API .NET CORE** 
+Date: 20 Desember 2021
 
 # DAILY TASK REPORT
 
