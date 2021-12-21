@@ -1,6 +1,6 @@
 MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
 # **SEARCHING API** 
-Date: 20 Desember 2021
+Date: 21 Desember 2021
 
 #### 1. Create new Models "Searching" as attribute objek keyword of searching
 
