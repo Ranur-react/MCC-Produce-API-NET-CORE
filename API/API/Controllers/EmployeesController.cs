@@ -66,10 +66,29 @@ namespace API.Controllers
             }
 
         }
-/*        [Route]*/
-        public ActionResult Search(Employee employee)
+        /*        [Route]*/
+        [Route("Search")]
+        [HttpPost]
+        public ActionResult Search(Search search)
         {
-            return Ok(new { status = StatusCodes.Status200OK, result = employee, message = "Pencarian diproses" });
+            try
+            {
+                var result = employeeRepository.Search(search);
+                if (result != null)
+                {
+                    return Ok(new { status = StatusCodes.Status200OK, result = result, message = $"{search.keyword} Pencarian diproses" });
+
+                }
+                else
+                {
+                    return BadRequest(new { status = StatusCodes.Status204NoContent, result, message = "tidak ada indikasi data ditemukan" });
+                }
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errorMessage = e.Message });
+
+            }
         }
         [HttpPost]
         public ActionResult Post(Employee employee)

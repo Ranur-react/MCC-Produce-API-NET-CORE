@@ -36,11 +36,11 @@ namespace API.Repository
             return myContext.Employees.Find(NIK);
             /*return myContext.Employees.Where(e => e.NIK == NIK).FirstOrDefault();*/
         }
-        public IEnumerable<Employee> Search(Employee employee)
+        public IEnumerable<Employee> Search(Search search)
         {
 
             /*            return myContext.Employees.Find(Name);*/
-            return myContext.Employees.ToList().Where(e => e.FirsthName == employee.FirsthName || e.NIK==employee.NIK || e.LastName == employee.LastName);
+            return myContext.Employees.ToList().Where(e => e.FirsthName == search.keyword || e.NIK== search.keyword || e.LastName == search.keyword);
         }
 
         public int Insert(Employee employee) //use postman  to test
