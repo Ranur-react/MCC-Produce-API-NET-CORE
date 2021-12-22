@@ -26,9 +26,7 @@ namespace API.Context
             modelBuilder.Entity<Profiling>().HasOne(fk => fk.Education).WithMany(k => k.Profiling); //many to one
             modelBuilder.Entity<Employee>().HasOne(f => f.Account).WithOne(fk => fk.Employee);
             modelBuilder.Entity<Account>().HasOne(f => f.Profiling).WithOne(fk => fk.Account);
-            /*
-           modelBuilder.Entity<Profiling>().HasOne(fk => fk.Account).WithOne(fk => fk.Profiling);*/
-            /* modelBuilder.Entity<University>().HasMany(pk => pk.Educations).WithOne(fk => fk.University); //one to many */
+ 
         }
     }
 }
