@@ -22,13 +22,13 @@ namespace API.Context
         public DbSet<University> Universities{ get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            /*modelBuilder.Entity<Education>().HasOne(fk => fk.University).WithMany(k => k.Education); //many to one
-            modelBuilder.Entity<Profiling>().HasOne(fk => fk.Education).WithMany(k => k.Profiling); //many to one*/
-
-           /* modelBuilder.Entity<Employee>().HasOne(fk => fk.Account.NIK);*/
-             /*
-            modelBuilder.Entity<Profiling>().HasOne(fk => fk.Account).WithOne(fk => fk.Profiling);*/
-           /* modelBuilder.Entity<University>().HasMany(pk => pk.Educations).WithOne(fk => fk.University); //one to many */
+            modelBuilder.Entity<Education>().HasOne(fk => fk.University).WithMany(k => k.Education); //many to one
+            modelBuilder.Entity<Profiling>().HasOne(fk => fk.Education).WithMany(k => k.Profiling); //many to one
+            modelBuilder.Entity<Employee>().HasOne(f => f.Account).WithOne(fk => fk.Employee);
+            modelBuilder.Entity<Account>().HasOne(f => f.Profiling).WithOne(fk => fk.Account);
+            /*
+           modelBuilder.Entity<Profiling>().HasOne(fk => fk.Account).WithOne(fk => fk.Profiling);*/
+            /* modelBuilder.Entity<University>().HasMany(pk => pk.Educations).WithOne(fk => fk.University); //one to many */
         }
     }
 }

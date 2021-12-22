@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace API.Migrations
 {
-    public partial class PerbaikirelasidenganFKyangbenardikonfigurasipadadataanotationattribet : Migration
+    public partial class PerbaikirelasioneToOnedengananotasibesertamodelBuilderlengkapjukanullornotnullnyalengkap : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,8 +12,8 @@ namespace API.Migrations
                 columns: table => new
                 {
                     NIK = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    FirsthName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirsthName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     BirthDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Salary = table.Column<int>(type: "int", nullable: false),
@@ -74,16 +74,16 @@ namespace API.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Degree = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Degree = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     GPA = table.Column<float>(type: "real", nullable: false),
-                    Fk_University = table.Column<int>(type: "int", nullable: false)
+                    University_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tb_M_Education", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Tb_M_Education_Tb_M_University_Fk_University",
-                        column: x => x.Fk_University,
+                        name: "FK_Tb_M_Education_Tb_M_University_University_Id",
+                        column: x => x.University_Id,
                         principalTable: "Tb_M_University",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -94,7 +94,7 @@ namespace API.Migrations
                 columns: table => new
                 {
                     NIK = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    Fk_Education = table.Column<int>(type: "int", nullable: false)
+                    Education_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -106,22 +106,22 @@ namespace API.Migrations
                         principalColumn: "NIK",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Tb_M_Profiling_Tb_M_Education_Fk_Education",
-                        column: x => x.Fk_Education,
+                        name: "FK_Tb_M_Profiling_Tb_M_Education_Education_Id",
+                        column: x => x.Education_Id,
                         principalTable: "Tb_M_Education",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tb_M_Education_Fk_University",
+                name: "IX_Tb_M_Education_University_Id",
                 table: "Tb_M_Education",
-                column: "Fk_University");
+                column: "University_Id");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Tb_M_Profiling_Fk_Education",
+                name: "IX_Tb_M_Profiling_Education_Id",
                 table: "Tb_M_Profiling",
-                column: "Fk_Education");
+                column: "Education_Id");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
