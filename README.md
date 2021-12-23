@@ -1,4 +1,5 @@
 ### Generate NIK Incremanet
+
 ````
 
     var empCount = this.Get().Count()+1;

@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace API.Models.ViewModel
 {
-    public class RegisterForm
+    public class Users
     {
+        public String NIK { get; set; }
         public String FirsthName { get; set; }
         [Required(ErrorMessage = "it must have a value")]
         public String LastName { get; set; }
@@ -26,7 +27,7 @@ namespace API.Models.ViewModel
         [Required(ErrorMessage = " it must have a value")]
         public float GPA { get; set; }
         [Required(ErrorMessage = " it must have a value")]
-        public int University_Id { get; set; }
+        public String UniversityName { get; set; }
 
     }
 
