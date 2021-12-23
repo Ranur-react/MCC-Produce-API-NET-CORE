@@ -10,10 +10,10 @@ using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public class EmployeeRepository : IEmployeeRepository
+    public class OLD_EmployeeRepository : IEmployeeRepository
     {
         private readonly MyContext myContext;  //koneksi dengan database
-        public EmployeeRepository(MyContext myContext)
+        public OLD_EmployeeRepository(MyContext myContext)
         {
             this.myContext = myContext;
         }
@@ -56,6 +56,10 @@ namespace API.Repository
                 }
                 else
                 {
+                    
+                /*    var empCount = this.Get().Count()+1;
+                    var Year = DateTime.Now.Year;
+                    employee.NIK = Year + '0' + empCount.ToString();*/
                     myContext.Employees.Add(employee);
                     return myContext.SaveChanges();
                 }

@@ -12,12 +12,11 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmployeesController : BaseController<Employee, EmployeeRepository, String>
+    public class AccountsController : BaseController<Account, AccountRepository, String>
     {
-        private readonly EmployeeRepository employeeRepository;
-        public EmployeesController(EmployeeRepository employeeRepository) : base(employeeRepository)
-        {
-            this.employeeRepository= employeeRepository;
+        private readonly AccountRepository accountRepository;
+        public AccountsController(AccountRepository accountRepository):base(accountRepository) {
+            this.accountRepository = accountRepository;
         }
     }
 }

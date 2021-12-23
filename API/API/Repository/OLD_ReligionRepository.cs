@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace API.Repository
 {
-    public class ReligionRepository : IReligionRepository
+    public class OLD_ReligionRepository : IReligionRepository
     {
         private readonly MyContext myContext; //connections
-        public ReligionRepository(MyContext myContext) {
+        public OLD_ReligionRepository(MyContext myContext) {
             this.myContext = myContext;
         }
         public int Delete(string id)

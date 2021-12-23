@@ -10,10 +10,10 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReligionsController : ControllerBase
+    public class Old_ReligionsController : ControllerBase
     {
-        private readonly ReligionRepository religionRepository;
-        public ReligionsController(ReligionRepository religionRepository) {
+        private readonly OLD_ReligionRepository religionRepository;
+        public Old_ReligionsController(OLD_ReligionRepository religionRepository) {
             this.religionRepository = religionRepository;
         }
         [HttpGet]
