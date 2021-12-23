@@ -1,3 +1,14 @@
+### Generate NIK Incremanet
+````
+
+    var empCount = this.Get().Count()+1;
+    var Year = DateTime.Now.Year;
+    employee.NIK = Year + '0' + empCount.ToString();
+
+````
+
+
+
 MCC PART 61-APPLICATIONS DEVELOPER Jr-Rahmat Nur.
 # **SEARCHING API** 
 ## DAILY TASK REPORT
