@@ -20,27 +20,53 @@ namespace API.Repository.Data
             return myContext.Employees.ToList(); //Get data from Employee Entity
         }
 
-        public IEnumerable<Object> RegisteredData() { 
-        
-            var qry= from emp in myContext.Employees
-                     join act in myContext.Accounts
-                        on emp.NIK equals act.NIK
-                     join prof in myContext.Profilings
-                        on act.NIK equals prof.NIK 
-                     join edu in myContext.Educations
-                       on prof.Education_Id equals edu.Id
-                     join uni in myContext.Universities
-                        on edu.University_Id equals uni.Id
-                     select new EmployeeAccount
-                     {  FullName = emp.FirsthName + emp.LastName,
-                        PhoneNumber=emp.Phone,
-                        Email=emp.Email,
-                        BirthDate=emp.BirthDate,
-                        Salary=emp.Salary,
-                        GPA=edu.GPA,
-                        Degree=edu.Degree,
-                        UniversityName=uni.UniversityName
-                     };
+        public IEnumerable<Object> RegisteredData() {
+
+            /* var qry= from emp in myContext.Employees
+                      join act in myContext.Accounts
+                         on emp.NIK equals act.NIK
+                      join prof in myContext.Profilings
+                         on act.NIK equals prof.NIK 
+                      join edu in myContext.Educations
+                        on prof.Education_Id equals edu.Id
+                      join uni in myContext.Universities
+                         on edu.University_Id equals uni.Id
+                      select new EmployeeAccount
+                      {  FullName = emp.FirsthName + emp.LastName,
+                         PhoneNumber=emp.Phone,
+                         Email=emp.Email,
+                         BirthDate=emp.BirthDate,
+                         Salary=emp.Salary,
+                         GPA=edu.GPA,
+                         Degree=edu.Degree,
+                         UniversityName=uni.UniversityName
+                      };*/
+
+            var qry = from emp in myContext.Employees
+                      join act in myContext.Accounts
+                         on emp.NIK equals act.NIK
+                      join prof in myContext.Profilings
+                         on act.NIK equals prof.NIK
+                      join edu in myContext.Educations
+                        on prof.Education_Id equals edu.Id
+                      join uni in myContext.Universities
+                         on edu.University_Id equals uni.Id
+                      select new 
+                      {
+                          FullName = emp.FirsthName + emp.LastName,
+                          PhoneNumber = emp.Phone,
+                          Email = emp.Email,
+                          BirthDate = emp.BirthDate,
+                          Salary = emp.Salary,
+                          Education=new {
+                              GPA = edu.GPA,
+                              Degree = edu.Degree,
+                              University= new {
+                                  UniversityName = uni.UniversityName
+                              }
+                          },
+
+                      };
             return qry;
 
         }
