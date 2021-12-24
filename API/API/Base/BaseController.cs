@@ -76,10 +76,8 @@ namespace API.Base
                 {
                     case 1:
                         return Ok(new { status = StatusCodes.Status201Created, result, message = $"Data Berhasil Tersimpan ke [{ControllerContext.ActionDescriptor.ControllerName}]" });
-                        break;
                     default:
                         return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal Ditambahkan Sudah ada di dalam database [{ControllerContext.ActionDescriptor.ControllerName}]" });
-                        break;
                 }
             }
             catch (Exception e)
@@ -97,10 +95,8 @@ namespace API.Base
                 {
                     case 1:
                         return Ok(new { status = StatusCodes.Status200OK, result, message = $"Data Berhasil Diubah dan Tersimpan ke [{ControllerContext.ActionDescriptor.ControllerName}]" });
-                        break;
                     default:
                         return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal diubah di[{ControllerContext.ActionDescriptor.ControllerName}]" });
-                        break;
                 }
             }
             catch (Exception e)
@@ -119,10 +115,8 @@ namespace API.Base
                 {
                     case 1:
                         return Ok(new { status = StatusCodes.Status200OK, result, message = "Data Berhasil Dihapus" });
-                        break;
                     default:
                         return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data {key} Tidak ditemukan  atau sudah dihapus di[{ControllerContext.ActionDescriptor.ControllerName}]" });
-                        break;
                 }
             }
             catch (Exception e)

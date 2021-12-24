@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace API.Models
@@ -14,6 +15,7 @@ namespace API.Models
         [Required(ErrorMessage = "{Id} it must have a value")]
         public virtual int Id { get; set; }
         public virtual String UniversityName { get; set; }
+        [JsonIgnore]
         public virtual ICollection<Education> Education { get; set; }
     }
 }

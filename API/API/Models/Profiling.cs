@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace API.Models
@@ -19,6 +20,7 @@ namespace API.Models
         [ForeignKey("Education")]
         public virtual int Education_Id { get; set; }
         public virtual Education Education { get; set; }
+        [JsonIgnore]
         public virtual Account Account { get;set; } 
     }
 }

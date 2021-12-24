@@ -17,7 +17,6 @@ namespace API.Models
         [Required(ErrorMessage = "it must have a value")]
         public virtual String NIK { get; set; }
         [Required(ErrorMessage = "it must have a value")]
-      /*  [RegularExpression(@"[0-9][a-z]+[A-Z].{8,15}[!@#$%^&*()_+=\[{\]};:<>|./?,-]", ErrorMessage = "Passwor must Containe one Uppercase,One Lower,number,and one  symbol must more then 8 Case Caracter")]*/
         public virtual String Password { get; set; }
         public virtual Profiling Profiling { get; set; }
         [JsonIgnore]

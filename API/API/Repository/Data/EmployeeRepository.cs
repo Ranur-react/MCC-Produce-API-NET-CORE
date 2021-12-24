@@ -22,26 +22,7 @@ namespace API.Repository.Data
 
         public IEnumerable<Object> RegisteredData() {
 
-            /* var qry= from emp in myContext.Employees
-                      join act in myContext.Accounts
-                         on emp.NIK equals act.NIK
-                      join prof in myContext.Profilings
-                         on act.NIK equals prof.NIK 
-                      join edu in myContext.Educations
-                        on prof.Education_Id equals edu.Id
-                      join uni in myContext.Universities
-                         on edu.University_Id equals uni.Id
-                      select new EmployeeAccount
-                      {  FullName = emp.FirsthName + emp.LastName,
-                         PhoneNumber=emp.Phone,
-                         Email=emp.Email,
-                         BirthDate=emp.BirthDate,
-                         Salary=emp.Salary,
-                         GPA=edu.GPA,
-                         Degree=edu.Degree,
-                         UniversityName=uni.UniversityName
-                      };*/
-
+            //one record relationable data
             var qry = from emp in myContext.Employees
                       join act in myContext.Accounts
                          on emp.NIK equals act.NIK
@@ -55,19 +36,57 @@ namespace API.Repository.Data
                       {
                           FullName = emp.FirsthName + emp.LastName,
                           PhoneNumber = emp.Phone,
+                          Gender= emp.Gender==0?"Laki-Laki":"Perempuan",
                           Email = emp.Email,
                           BirthDate = emp.BirthDate,
                           Salary = emp.Salary,
-                          Education=new {
-                              GPA = edu.GPA,
-                              Degree = edu.Degree,
-                              University= new {
-                                  UniversityName = uni.UniversityName
-                              }
-                          },
-
+                          GPA = edu.GPA,
+                          Degree = edu.Degree,
+                          UniversityName = uni.UniversityName
                       };
             return qry;
+            /*              var qry = from emp in myContext.Employees
+                                    join act in myContext.Accounts
+                                       on emp.NIK equals act.NIK
+                                    join prof in myContext.Profilings
+                                       on act.NIK equals prof.NIK
+                                    join edu in myContext.Educations
+                                      on prof.Education_Id equals edu.Id
+                                    join uni in myContext.Universities
+                                       on edu.University_Id equals uni.Id
+                                    select new 
+                                    {
+                                          emp
+                                    };
+                          return qry;*/
+
+            //Lazy loading Custome dengan query
+            /*  var qry = from emp in myContext.Employees
+                        join act in myContext.Accounts
+                           on emp.NIK equals act.NIK
+                        join prof in myContext.Profilings
+                           on act.NIK equals prof.NIK
+                        join edu in myContext.Educations
+                          on prof.Education_Id equals edu.Id
+                        join uni in myContext.Universities
+                           on edu.University_Id equals uni.Id
+                        select new 
+                        {
+                            FullName = emp.FirsthName + emp.LastName,
+                            PhoneNumber = emp.Phone,
+                            Email = emp.Email,
+                            BirthDate = emp.BirthDate,
+                            Salary = emp.Salary,
+                            Education=new {
+                                GPA = edu.GPA,
+                                Degree = edu.Degree,
+                                University= new {
+                                    UniversityName = uni.UniversityName
+                                }
+                            },
+
+                        };*/
+            /* return qry;*/
 
         }
         public IEnumerable<Education> GetEducation()
@@ -78,7 +97,7 @@ namespace API.Repository.Data
         {
             var empCount = this.GetEmployee().Count() + 1;
             var Year = DateTime.Now.Year;
-            var NIK = $"{Year}0{empCount.ToString()}";
+            var formatedNIK = $"{Year}0{empCount.ToString()}";
             var checkEmailPhone = CheckEmailAndPhone(registerForm);
             if (checkEmailPhone != 1)
             {
@@ -88,7 +107,7 @@ namespace API.Repository.Data
             {
                 var emp = new Employee
                 {
-                    NIK = NIK,
+                    NIK = formatedNIK,
                     FirsthName = registerForm.FirsthName,
                     LastName = registerForm.LastName,
                     Phone = registerForm.Phone,

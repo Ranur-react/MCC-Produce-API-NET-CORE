@@ -15,8 +15,7 @@ namespace API.Context
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-/*            optionsBuilder.UseLazyLoadingProxies();*/
-           /* optionsBuilder.UseChangeTrackingProxies();*/
+            optionsBuilder.UseLazyLoadingProxies();
         }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Religion> Religions { get; set; }

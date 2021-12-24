@@ -21,7 +21,6 @@ namespace API.Models.ViewModel
         [EmailAddress(ErrorMessage = "it's must as Email value, please rechek your typing value, use @ symbol for representations domain after mailName")]
         public String Email { get; set; }
         [Required(ErrorMessage = "it must have a value")]
-  /*      [RegularExpression(@"[a-z]+[A-Z]+", ErrorMessage = "Passwor must Containe one Uppercase,One Lower,number,and one  symbol must more then 8 Case Caracter")]*/
         public String Password { get; set; }
         public String Degree { get; set; }
         [Required(ErrorMessage = " it must have a value")]
