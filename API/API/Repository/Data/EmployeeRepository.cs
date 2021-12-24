@@ -19,12 +19,31 @@ namespace API.Repository.Data
         {
             return myContext.Employees.ToList(); //Get data from Employee Entity
         }
-     /*   public IEnumerable<Users> GetAccount()
-        {
-           
-            return myContext.Employees.ToList().Join<Account,NIK,>
-        }*/
 
+        public IEnumerable<Object> RegisteredData() { 
+        
+            var qry= from emp in myContext.Employees
+                     join act in myContext.Accounts
+                        on emp.NIK equals act.NIK
+                     join prof in myContext.Profilings
+                        on act.NIK equals prof.NIK 
+                     join edu in myContext.Educations
+                       on prof.Education_Id equals edu.Id
+                     join uni in myContext.Universities
+                        on edu.University_Id equals uni.Id
+                     select new EmployeeAccount
+                     {  FullName = emp.FirsthName + emp.LastName,
+                        PhoneNumber=emp.Phone,
+                        Email=emp.Email,
+                        BirthDate=emp.BirthDate,
+                        Salary=emp.Salary,
+                        GPA=edu.GPA,
+                        Degree=edu.Degree,
+                        UniversityName=uni.UniversityName
+                     };
+            return qry;
+
+        }
         public IEnumerable<Education> GetEducation()
         {
             return myContext.Educations.ToList(); //Get data from Employee Entity
@@ -32,7 +51,6 @@ namespace API.Repository.Data
         public int Register(RegisterForm registerForm) //use postman  to test
         {
             var empCount = this.GetEmployee().Count() + 1;
-            var eduCount = this.GetEducation().Count() + 1;
             var Year = DateTime.Now.Year;
             var NIK = $"{Year}0{empCount.ToString()}";
             var checkEmailPhone = CheckEmailAndPhone(registerForm);
@@ -55,24 +73,18 @@ namespace API.Repository.Data
                 };
                 myContext.Employees.Add(emp);
                 myContext.SaveChanges();
-
-
-
                 var act = new Account
                 {
                     NIK = emp.NIK,
-                    Password = registerForm.Password
+                    Password = BCrypt.Net.BCrypt.HashPassword(registerForm.Password)
                 };
                 myContext.Accounts.Add(act);
                 myContext.SaveChanges();
-
-
-
                 var edu = new Education
                 {
-                    Degree =registerForm.Degree,
-                    GPA=registerForm.GPA,
-                    University_Id=registerForm.University_Id
+                    Degree = registerForm.Degree,
+                    GPA = registerForm.GPA,
+                    University_Id = registerForm.University_Id
                 };
                 myContext.Educations.Add(edu);
                 myContext.SaveChanges();
@@ -81,7 +93,7 @@ namespace API.Repository.Data
                 {
                     NIK = act.NIK,
                     Education_Id = edu.Id
-                };              
+                };
                 myContext.Profilings.Add(prof);
                 myContext.SaveChanges();
                 return 1;

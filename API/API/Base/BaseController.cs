@@ -43,6 +43,7 @@ namespace API.Base
 
             }
         }
+
         [HttpGet("{Key}")]
         public ActionResult<Entity> Get(Key key)
         {

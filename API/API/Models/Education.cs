@@ -12,16 +12,16 @@ namespace API.Models
     public class Education
     {
         [Required(ErrorMessage = " it must have a value")]
-        public int Id { get; set; }
+        public virtual int Id { get; set; }
         [Required(ErrorMessage = " it must have a value")]
-        public String Degree { get; set; }
+        public virtual String Degree { get; set; }
         [Required(ErrorMessage = " it must have a value")]
-        public float GPA { get; set; }
+        public virtual float GPA { get; set; }
         [Required(ErrorMessage = " it must have a value")]
         [ForeignKey("University")]
-        public int University_Id { get; set; }
-        public University University{ get; set; }
-        public ICollection<Profiling> Profiling { get; set; }
+        public virtual int University_Id { get; set; }
+        public virtual University University{ get; set; }
+        public virtual ICollection<Profiling> Profiling { get; set; }
 
     }
 }

@@ -20,14 +20,14 @@ namespace API.Controllers
         {
             this.employeeRepository= employeeRepository;
         }
-      /*  [Route("Users")]
+        [Route("RegisteredData")]
         [HttpGet]
-        public ActionResult Users()
+        public ActionResult RegisteredData()
         {
 
             try
             {
-                var result = employeeRepository.GetAccount();
+                var result = employeeRepository.RegisteredData();
                 if (result.Count() > 0)
                 {
                     return Ok(new { status = StatusCodes.Status200OK, result, message = $" {result.Count()} Data Berhasil Didapatkan" });
@@ -42,7 +42,7 @@ namespace API.Controllers
                 return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errorMessage = e.Message });
 
             }
-        }*/
+        }
         [Route("Register")]
         [HttpPost]
         public ActionResult Register(RegisterForm register)

@@ -10,7 +10,7 @@ namespace API.Models
 
     public class Religion
     {
-        public String Id { get; set; }
-        public String Name { get; set; }
+        public virtual String Id { get; set; }
+        public virtual String Name { get; set; }
     }
 }

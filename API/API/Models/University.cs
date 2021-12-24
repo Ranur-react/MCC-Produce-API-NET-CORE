@@ -12,8 +12,8 @@ namespace API.Models
     public class University
     {
         [Required(ErrorMessage = "{Id} it must have a value")]
-        public int Id{ get; set; }
-        public String UniversityName { get; set; }
-        public ICollection<Education> Education { get; set; }
+        public virtual int Id { get; set; }
+        public virtual String UniversityName { get; set; }
+        public virtual ICollection<Education> Education { get; set; }
     }
 }

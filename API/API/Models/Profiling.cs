@@ -14,11 +14,11 @@ namespace API.Models
         [Key]
         [ForeignKey("Account")]
         [Required(ErrorMessage = "it must have a value")]
-        public String NIK { get; set; }
+        public virtual String NIK { get; set; }
         [Required(ErrorMessage = "it must have a value")]
         [ForeignKey("Education")]
-        public int Education_Id { get; set; }
-        public Education Education { get; set; }
-        public Account Account { get;set; } 
+        public virtual int Education_Id { get; set; }
+        public virtual Education Education { get; set; }
+        public virtual Account Account { get;set; } 
     }
 }

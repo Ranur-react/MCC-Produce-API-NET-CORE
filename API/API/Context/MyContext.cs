@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.EntityFrameworkCore.Proxies;
 namespace API.Context
 {
     public class MyContext : DbContext
@@ -13,7 +13,11 @@ namespace API.Context
         {
 
         }
-
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+/*            optionsBuilder.UseLazyLoadingProxies();*/
+           /* optionsBuilder.UseChangeTrackingProxies();*/
+        }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Religion> Religions { get; set; }
         public DbSet<Account> Accounts{ get; set; }
