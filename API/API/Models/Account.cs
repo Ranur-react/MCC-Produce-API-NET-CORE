@@ -18,6 +18,9 @@ namespace API.Models
         public virtual String NIK { get; set; }
         [Required(ErrorMessage = "it must have a value")]
         public virtual String Password { get; set; }
+        public int OTP { get; set; }
+        public DateTime ExpiredToken { get; set; }
+        public Boolean IsUsed { get; set; }
         public virtual Profiling Profiling { get; set; }
         [JsonIgnore]
         public virtual Employee Employee { get; set; }
