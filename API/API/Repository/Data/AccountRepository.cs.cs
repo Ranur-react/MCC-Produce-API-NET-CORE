@@ -39,13 +39,14 @@ namespace API.Repository.Data
                     $"<br>" +
                     $"<p align=\"center\">Masukan OTP di halaman ganti password sebelum {mailContent.TimeNow} agar password anda dapat anda ganti</p>";
                 message.Body = bodyBuilder.ToMessageBody();
+
                 SmtpClient client = new SmtpClient();
                 client.Connect("mail.gunungmas-seluler.com", 465, true);
                 client.Authenticate("dumy@gunungmas-seluler.com", "Dumy0@@@");
                 client.Send(message);
                 client.Disconnect(true);
                 client.Dispose();
-                return 1;
+                return 1; 
             }
             catch (Exception)
             {
@@ -67,6 +68,7 @@ namespace API.Repository.Data
             var checkEmail = CheckDataEmployee(mailForm.Email);
             if (checkEmail != null)
             {
+                // 1. buat token
                 var tokenGenerate = GenerateToken();
                 var checkAccount = CheckDataAccount(checkEmail.NIK);
                 if (checkAccount != null)
@@ -75,12 +77,14 @@ namespace API.Repository.Data
                 }
 
                 checkAccount.OTP= tokenGenerate;
+                // 2. buat waktu kadaluarsa
                 var timeNow = DateTime.Now.AddMinutes(5);
                 checkAccount.ExpiredToken= timeNow;
                 checkAccount.IsUsed= true;
+                // 3. Simpan ke database
                 myContext.Entry(checkAccount).State = EntityState.Modified;
                 var dbRespond= myContext.SaveChanges();
-
+                // 4. buat konten / element dari email yang akan diri
                 var mailContent = new MailContent {
                     Email = checkEmail.Email,
                     TimeNow = timeNow,
@@ -144,11 +148,11 @@ namespace API.Repository.Data
             }
 
         }
-            public int GenerateToken() {
-            int _min = 111111;
-            int _max = 999999;
-            Random _rdm = new Random();
-            return _rdm.Next(_min, _max);
+        public int GenerateToken() {
+                int _min = 111111;
+                int _max = 999999;
+                Random _rdm = new Random();
+                return _rdm.Next(_min, _max);
         } 
         public int Login(LoginForm loginForm)
         {

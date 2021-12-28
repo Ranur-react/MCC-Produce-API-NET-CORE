@@ -50,7 +50,7 @@ namespace API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal Ditambahkan Sudah ada di dalam database" });
+                    return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal diproses Sudah ada di dalam database" });
                 }
 
             }
