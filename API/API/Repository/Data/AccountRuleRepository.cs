@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace API.Repository.Data
 {
-    public class AccountRuleRepository : GeneralRepository<MyContext, AccountRule, int>
+    public class AccountRuleRepository : GeneralRepository<MyContext, AccountRole, int>
     {
         private readonly MyContext myContext;  //koneksi dengan database
 

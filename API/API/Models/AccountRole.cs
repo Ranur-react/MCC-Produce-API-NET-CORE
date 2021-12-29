@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    [Table("Tb_M_AccountRule")]
+    [Table("Tb_M_AccountRole")]
 
-    public class AccountRule
+    public class AccountRole
     {
         public int Id { get; set; }
-        [ForeignKey("Rule")]
-        public int Id_Rule { get; set; }
+        [ForeignKey("Role")]
+        public int Id_Role { get; set; }
         [ForeignKey("Account")]
         public String Id_Account { get; set; }
         [JsonIgnore]
         public virtual Account Account { get; set; }
-        public virtual Rule Rule { get; set; }
+        public virtual Role Role { get; set; }
 
     }
 }

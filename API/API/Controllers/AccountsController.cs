@@ -61,6 +61,7 @@ namespace API.Controllers
         {
             return Ok("testing Employee OK");
         }
+        [Authorize(Roles = "Employee,Director")]
         [Route("AcountData/{Email}")]
         [HttpGet]
         public ActionResult AcountData(String Email)
@@ -68,15 +69,12 @@ namespace API.Controllers
 
             try
             {
-                var result = accountRepository.RegisteredData(Email).AccountRule;
+                var result = accountRepository.RegisteredData(Email);
                 var testPrint = "";
-                foreach (var item in result)
-                {
-                    testPrint += $" {item.Rule.Name} ; ";
-                }
+              
                 if (result != null)
                 {
-                    return Ok(new { status = StatusCodes.Status200OK, Rules = testPrint, message = $" Data Berhasil Didapatkan" });
+                    return Ok(new { status = StatusCodes.Status200OK, result, message = $" Data Berhasil Didapatkan" });
                 }
                 else
                 {
@@ -180,38 +178,32 @@ namespace API.Controllers
                     }
                     else
                     {
-                        var get = accountRepository.RegisteredData(loginForm.Email).AccountRule;
-                        var rule = "";
+                        var get = accountRepository.RegisteredData(loginForm.Email).AccountRole;
+                        var role = "";
                         int n = 0;
                         foreach (var item in get)
                         {
                             n++;
                             if (n == get.Count)
                             {
-                                rule += $"{item.Rule.Name}";
+                                role += $"{item.Role.Name}";
                             }
                             else { 
-                                rule += $"{item.Rule.Name},";
+                                role += $"{item.Role.Name},";
 
                             }
                         }
                         var data = new LoginForm
                         {
                             Email = loginForm.Email,
-                            Rule = rule
+                            Role = role
                         };
-/*                        var calaims = new ClaimsIdentity(new Claim[] {
-                        new Claim(ClaimTypes.Email,data.Email),
-                        new Claim(ClaimTypes.Role,"Employee")
-                        });*/
                         var calaims = new List<Claim> {
                             new Claim("Email",data.Email),
-                            //new Claim("roles",data.Rule)
-/*                            new Claim("roles",data.Rule)*/
                         };
                         foreach (var item in get)
                         {
-                            calaims.Add(new Claim("roles", item.Rule.Name));
+                            calaims.Add(new Claim("roles", item.Role.Name));
                         }
                             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Configuration["Jwt:Key"]));
                         var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

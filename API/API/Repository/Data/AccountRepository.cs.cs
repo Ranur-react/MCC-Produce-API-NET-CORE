@@ -115,7 +115,7 @@ namespace API.Repository.Data
         {
             try
             {
-                var dataAccount = CheckDataAccount(CheckDataEmployee(cForm.Email).NIK);
+                var dataAccount = RegisteredData(cForm.Email);
                 if (dataAccount.OTP != cForm.OTP)
                 {
                     return 4;

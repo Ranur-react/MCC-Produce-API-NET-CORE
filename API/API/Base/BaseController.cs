@@ -1,5 +1,6 @@
 ﻿using API.Repository;
 using API.Repository.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,7 +23,7 @@ namespace API.Base
             this.repository = repository;
         }
         [HttpGet]
-        public ActionResult<Entity> Get()
+        public virtual ActionResult<Entity> Get()
         {
 
             try
@@ -86,7 +87,7 @@ namespace API.Base
             }
         }
         [HttpPut]
-        public ActionResult<Entity> Put(Entity entity)
+        public virtual ActionResult<Entity> Put(Entity entity)
         {
             try
             {

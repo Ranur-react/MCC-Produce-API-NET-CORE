@@ -13,6 +13,6 @@ namespace API.Models.ViewModel
         [Required(ErrorMessage = "it must have a value")]
         public String Password { get; set; }
 
-        public String Rule { get; set; }
+        public String Role { get; set; }
     }
 }

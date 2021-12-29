@@ -12,10 +12,10 @@ using System.Threading.Tasks;
 
 namespace API.Repository.Data
 {
-    public class RuleRepository : GeneralRepository<MyContext, Rule, int>
+    public class RoleRepository : GeneralRepository<MyContext, Role, int>
     {
         private readonly MyContext myContext;  //koneksi dengan database
-        public RuleRepository(MyContext myContext) : base(myContext)
+        public RoleRepository(MyContext myContext) : base(myContext)
         {
             this.myContext = myContext;
         }

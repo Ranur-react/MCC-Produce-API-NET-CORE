@@ -142,9 +142,9 @@ namespace API.Repository.Data
                 myContext.Profilings.Add(prof);
                 myContext.SaveChanges();
 
-                var actRule = new AccountRule
+                var actRule = new AccountRole
                 {
-                    Id_Rule=3,
+                    Id_Role=3,
                     Id_Account=act.NIK
                 };
                 myContext.AccountRules.Add(actRule);

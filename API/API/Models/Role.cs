@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace API.Models
 {
-    [Table("Tb_M_Rule")]
-    public class Rule
+    [Table("Tb_M_Role")]
+    public class Role
     {
         public int Id { get; set; }
         public String Name { get; set; }
         [JsonIgnore]
-        public virtual ICollection<AccountRule> AccountRule { get; set; }
+        public virtual ICollection<AccountRole> AccountRole { get; set; }
 
     }
 }

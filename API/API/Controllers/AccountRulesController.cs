@@ -12,7 +12,7 @@ namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AccountRulesController : BaseController<AccountRule, AccountRuleRepository, int>
+    public class AccountRulesController : BaseController<AccountRole, AccountRuleRepository, int>
     {
         private readonly AccountRuleRepository accountRuleRepository1;
 
