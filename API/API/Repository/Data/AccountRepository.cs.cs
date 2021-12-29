@@ -20,7 +20,12 @@ namespace API.Repository.Data
         {
             this.myContext = myContext;
         }
-        public int  SendMail(MailContent mailContent) {
+        public Account RegisteredData(String param)
+        {
+            var dataAccount = CheckDataAccount(CheckDataEmployee(param).NIK);
+            return dataAccount;
+        }
+            public int  SendMail(MailContent mailContent) {
             try
             {
                 MimeMessage message = new MimeMessage();

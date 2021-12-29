@@ -2,6 +2,7 @@
 using API.Models;
 using API.Models.ViewModel;
 using API.Repository.Data;
+using Castle.Core.Configuration;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -19,6 +20,7 @@ namespace API.Controllers
         public EmployeesController(EmployeeRepository employeeRepository) : base(employeeRepository)
         {
             this.employeeRepository= employeeRepository;
+
         }
         [Route("RegisteredData")]
         [HttpGet]
@@ -43,6 +45,7 @@ namespace API.Controllers
 
             }
         }
+       
         [Route("Register")]
         [HttpPost]
         public ActionResult Register(RegisterForm register)

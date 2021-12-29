@@ -23,6 +23,8 @@ namespace API.Context
         public DbSet<Education> Educations{ get; set; }
         public DbSet<Profiling> Profilings { get; set; }
         public DbSet<University> Universities{ get; set; }
+        public DbSet<Rule> Rules{ get; set; }
+        public DbSet<AccountRule> AccountRules { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Education>().HasOne(fk => fk.University).WithMany(k => k.Education); //many to one

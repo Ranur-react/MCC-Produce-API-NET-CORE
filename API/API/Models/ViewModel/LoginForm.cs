@@ -12,5 +12,7 @@ namespace API.Models.ViewModel
         public String Email { get; set; }
         [Required(ErrorMessage = "it must have a value")]
         public String Password { get; set; }
+
+        public String Rule { get; set; }
     }
 }

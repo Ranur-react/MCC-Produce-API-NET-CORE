@@ -21,8 +21,11 @@ namespace API.Models
         public int OTP { get; set; }
         public DateTime ExpiredToken { get; set; }
         public Boolean IsUsed { get; set; }
+        [JsonIgnore]
         public virtual Profiling Profiling { get; set; }
         [JsonIgnore]
         public virtual Employee Employee { get; set; }
+        public virtual ICollection<AccountRule> AccountRule { get; set; }
+
     }
 }

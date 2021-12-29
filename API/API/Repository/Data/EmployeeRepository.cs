@@ -141,6 +141,14 @@ namespace API.Repository.Data
                 };
                 myContext.Profilings.Add(prof);
                 myContext.SaveChanges();
+
+                var actRule = new AccountRule
+                {
+                    Id_Rule=3,
+                    Id_Account=act.NIK
+                };
+                myContext.AccountRules.Add(actRule);
+                myContext.SaveChanges();
                 return 1;
             }
 

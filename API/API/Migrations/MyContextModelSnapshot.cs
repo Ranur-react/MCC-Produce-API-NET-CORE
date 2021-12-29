@@ -42,6 +42,28 @@ namespace API.Migrations
                     b.ToTable("Tb_M_Account");
                 });
 
+            modelBuilder.Entity("API.Models.AccountRule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Id_Account")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("Id_Rule")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Id_Account");
+
+                    b.HasIndex("Id_Rule");
+
+                    b.ToTable("Tb_M_AccountRule");
+                });
+
             modelBuilder.Entity("API.Models.Education", b =>
                 {
                     b.Property<int>("Id")
@@ -127,6 +149,21 @@ namespace API.Migrations
                     b.ToTable("Tb_M_Religion");
                 });
 
+            modelBuilder.Entity("API.Models.Rule", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tb_M_Rule");
+                });
+
             modelBuilder.Entity("API.Models.University", b =>
                 {
                     b.Property<int>("Id")
@@ -151,6 +188,23 @@ namespace API.Migrations
                         .IsRequired();
 
                     b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("API.Models.AccountRule", b =>
+                {
+                    b.HasOne("API.Models.Account", "Account")
+                        .WithMany("AccountRule")
+                        .HasForeignKey("Id_Account");
+
+                    b.HasOne("API.Models.Rule", "Rule")
+                        .WithMany("AccountRule")
+                        .HasForeignKey("Id_Rule")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Account");
+
+                    b.Navigation("Rule");
                 });
 
             modelBuilder.Entity("API.Models.Education", b =>
@@ -185,6 +239,8 @@ namespace API.Migrations
 
             modelBuilder.Entity("API.Models.Account", b =>
                 {
+                    b.Navigation("AccountRule");
+
                     b.Navigation("Profiling");
                 });
 
@@ -196,6 +252,11 @@ namespace API.Migrations
             modelBuilder.Entity("API.Models.Employee", b =>
                 {
                     b.Navigation("Account");
+                });
+
+            modelBuilder.Entity("API.Models.Rule", b =>
+                {
+                    b.Navigation("AccountRule");
                 });
 
             modelBuilder.Entity("API.Models.University", b =>
