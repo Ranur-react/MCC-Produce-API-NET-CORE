@@ -1,0 +1,51 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employees</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+</head>
+<body>
+    <div class="EmployeeTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">NIK</th>
+                    <th scope="col">Nama</th>
+                    <th scope="col">Hp</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody class="EmployeeTableList">
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+<script>
+    $.ajax({
+        url: "https://localhost:44321/API/Employees",
+        success: function (e) {
+            console.log(e);
+            var tableBody = "";
+            $.map(e.result,(rest,key)=> {
+                tableBody += `
+              <tr>
+                  <th scope="row">${rest.nik}</th>
+                  <td>${rest.lastName},${rest.firsthName}</td>
+                  <td>${rest.phone}</td>
+                  <td>${rest.salary}</td>
+                </tr>
+            `;
+            });
+
+            $('.EmployeeTableList').html(tableBody);
+        }
+    })
+</script>

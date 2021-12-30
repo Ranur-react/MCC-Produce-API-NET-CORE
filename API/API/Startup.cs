@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -60,6 +61,11 @@ namespace API
 
                 };
             });
+            services.AddCors(e =>
+            {
+                e.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+            services.AddSwaggerGen(c=>c.SwaggerDoc(name:"v1", new OpenApiInfo {Title="My API",Version="v1" }));
             /*services.AddAuthorization(options =>
             {
 
@@ -91,13 +97,17 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint(url: "/swagger/v1/swagger.json", name: "My Api V1");
+            });
             app.UseHttpsRedirection();
 
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseCors(options => options.AllowAnyOrigin());
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

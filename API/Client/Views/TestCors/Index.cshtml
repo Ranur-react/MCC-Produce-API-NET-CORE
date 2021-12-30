@@ -1,0 +1,23 @@
+﻿
+@{
+    Layout = null;
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta name="viewport" />
+    <title>index</title>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+    Test Cors
+</body>
+</html>
+<script>
+    $.ajax({
+        url: "https://localhost:44321/API/Employees/TestCors",
+        success: function (result) {
+            console.log(result);
+        }
+    })
+</script>

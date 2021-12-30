@@ -22,6 +22,11 @@ namespace API.Controllers
             this.employeeRepository= employeeRepository;
 
         }
+        [Route("TestCors")]
+        [HttpGet]
+        public ActionResult TestCors() {
+            return Ok("test Cors berhasil guys");
+        }
         [Route("RegisteredData")]
         [HttpGet]
         public ActionResult RegisteredData()
