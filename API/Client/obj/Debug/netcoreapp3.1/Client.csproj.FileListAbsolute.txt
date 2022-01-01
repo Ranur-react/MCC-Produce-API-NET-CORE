@@ -8,7 +8,6 @@ D:\MCC\MVC\API2\API\Client\bin\Debug\netcoreapp3.1\Client.dll
 D:\MCC\MVC\API2\API\Client\bin\Debug\netcoreapp3.1\Client.pdb
 D:\MCC\MVC\API2\API\Client\bin\Debug\netcoreapp3.1\Client.Views.dll
 D:\MCC\MVC\API2\API\Client\bin\Debug\netcoreapp3.1\Client.Views.pdb
-D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Client.csproj.AssemblyReference.cache
 D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Client.GeneratedMSBuildEditorConfig.editorconfig
 D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfoInputs.cache
 D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Client.AssemblyInfo.cs

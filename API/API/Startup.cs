@@ -61,11 +61,25 @@ namespace API
 
                 };
             });
+
+
+
             services.AddCors(e =>
             {
+
                 e.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+//                e.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44309/TestCors"));
+
             });
+
+
+
+
+
             services.AddSwaggerGen(c=>c.SwaggerDoc(name:"v1", new OpenApiInfo {Title="My API",Version="v1" }));
+
+
+
             /*services.AddAuthorization(options =>
             {
 
@@ -107,7 +121,10 @@ namespace API
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
-            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseCors(options =>
+            //options.AllowAnyOrigin()
+            options.WithOrigins("https://localhost:44309")
+            );
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
