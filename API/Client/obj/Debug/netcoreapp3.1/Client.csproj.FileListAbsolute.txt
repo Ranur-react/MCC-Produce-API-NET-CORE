@@ -111,3 +111,4 @@ D:\MCC\MVC\API2\API\Client\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysi
 D:\MCC\MVC\API2\API\Client\bin\Debug\netcoreapp3.1\bundleconfig.json
 D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Razor\Views\TestCors\Index.cshtml.g.cs
 D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Razor\Views\Employees\Index.cshtml.g.cs
+D:\MCC\MVC\API2\API\Client\obj\Debug\netcoreapp3.1\Client.csproj.AssemblyReference.cache

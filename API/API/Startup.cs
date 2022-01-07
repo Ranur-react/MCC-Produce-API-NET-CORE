@@ -67,7 +67,7 @@ namespace API
             services.AddCors(e =>
             {
 
-                e.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+                e.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 //                e.AddPolicy("AllowOrigin", options => options.WithOrigins("https://localhost:44309/TestCors"));
 
             });
@@ -122,8 +122,8 @@ namespace API
             app.UseAuthentication();
             app.UseAuthorization();
             app.UseCors(options =>
-            //options.AllowAnyOrigin()
-            options.WithOrigins("https://localhost:44309")
+            options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()
+            //options.WithOrigins("https://localhost:44309")
             );
             app.UseEndpoints(endpoints =>
             {

@@ -396,3 +396,8 @@ D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Web Client Emplo
 D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Web Client Employee.pdb
 D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Web Client Employee.genruntimeconfig.cache
 D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Razor\Views\TestCors\Index.cshtml.g.cs
+D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Razor\Views\Exercises\Index.cshtml.g.cs
+D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_LayoutLatihan.cshtml.g.cs
+D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Razor\Views\Task\Index.cshtml.g.cs
+D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Razor\Views\Task\Pokemon.cshtml.g.cs
+D:\MCC\MVC\API2\API\Web Client Employee\obj\Debug\netcoreapp3.1\Razor\Views\Task\DataTable.cshtml.g.cs

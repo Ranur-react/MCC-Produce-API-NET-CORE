@@ -1,0 +1,98 @@
+﻿@{
+    Layout = "_LayoutLatihan";
+}
+
+<table class="table table-hover" id="EmployeeTable">
+    <thead>
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Gender</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Birth Date</th>
+            <th scope="col">Sallary</th>
+            <th scope="col">Gpa</th>
+            <th scope="col">Degre</th>
+            <th scope="col">University Name</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>x</td>
+            <td>Otto</td>
+            <td>X</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'IDR'
+    });
+   
+  
+
+    $(document).ready(function () {
+        $('#EmployeeTable').DataTable({
+            'ajax': {
+                'url': "https://localhost:44321/api/Employees/RegisteredData",
+                'dataType': 'json',
+                'dataSrc': 'result',
+            },
+            'columns': [
+                {
+                    'data': null,
+                    'render': (data, type, row, meta) => {
+                        return (meta.row + meta.settings._iDisplayStart + 1) + ".";
+                    }
+                },
+                {
+                    'data': 'fullName'
+                },
+                {
+                    'data': 'phoneNumber'
+                },
+                {
+                    'data': 'gender',
+                    'bSortable': false
+
+                },
+                {
+                    'data': 'email'
+                },
+                {
+                    'data': null,
+                    'render': (data, type, row) => {
+                        var dateGet = new Date(row['birthDate']);
+                        return dateGet.toLocaleDateString();
+                        }
+                },
+                {
+                    'data': null,
+                    'render': (data, type, row) => formatter.format(row['salary'])
+                },
+                {
+                    'data': 'gpa'
+                },
+                {
+                    'data': 'degree'
+                },
+                {
+                    'data': 'universityName'
+                },
+                {
+                    'data': null,
+                    'render': (data,type,row) => {
+                        return `<button type="button" class="btn btn-secondary }">Details</button>`
+                    },
+                    'bSortable': false
+                }
+
+            ],
+
+        });
+    });
+</script>

@@ -1,71 +1,212 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/*Csa Latihan*/
+.exercise * {
+    border: 0px solid #dddd;
+    padding: 15px;
+    border-radius:20px;
 }
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
+.row {
+    background-color: #AABEBD;
+    max-width: 700px;
+    margin: auto;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+section#a p.p2:hover, .judul:hover {
+    background-color:salmon;
+}
+section#b ul li.list:nth-child(2) {
+    background-color:lightgreen;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
 }
-@media (min-width: 768px) {
-  html {
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+
+
+/*install fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+/*/Jabva Script Exercise Array Multi dimensi//*/
+.javaScriptExercise * {
+    font-family: 'Poppins', sans-serif;
+}
+
+.row {
+
+    padding: 20px;
+    position: relative;
+    background-color: #d1e1e0;
+    max-width: 700px;
+    margin: auto;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 300px;
+    max-width:80%;
+    margin:auto;
+}
+.mini {
+    background-color: #ffff;
+}
+    .thumbnail .cycleFrame {
+        margin: auto;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .thumbnail .cycleFrame img {
+       
+        height: inherit;
+        opacity: 0.8;
+    }
+
+.thumbnail .title-thumbnail {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    color: #023E4A;
+    text-transform: capitalize;
+}
+
+.thumbnail .desc-thumbnail {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #687A79;
+}
+.menubox, .expandList {
+/*    border: 2px solid #dddd;*/
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+.title-menubox {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: center;
+        color: rgba(0,0,0,0.5);
+        margin-left:20px;
+       /*  border: 2px solid #dddd;*/
+         
+    }
+    .menubox .menues {
+        display: flex;
+        flex-wrap:wrap;
+        align-items: center;
+        justify-content: center;
+        margin:auto;
+        /*border: 2px solid #dddd;*/
+
+    }
+        .menubox .menues .box, .List li {
+            min-width: 100px;
+            border-radius: 20px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            margin: 20px;
+            border: 1px solid #023E4A;
+            height: inherit;
+            text-decoration: none;
+            list-style-type: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 18px;
+            text-align: center;
+            color: #023E4A;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+            text-transform:uppercase;
+        }
+            .menubox .menues .box:hover {
+                border: 1px solid rgba(50,50,50,0.5);
+                background-color: azure;
+            }
+
+.MenuFocus {
+    background-color: #023E4A;
+    color: #ffff;
+}
+.List {
+    display: flex;
+    flex-direction:column;
+    width: 100%;
+    padding:10px;
+}
+    .List li {
+        margin: 5px;
+        margin-left: 10%;
+        margin-right: 10%;
+        border: 1px solid rgba(50,50,50,0.5);
+        background-color: azure;
+    }
+    .List li:hover {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.001), 0 6px 20px 0 rgba(0, 0, 0, 0.01);
+    }
+.buttonCircle {
+     border-radius:20px;
+}
+.TableList {
+    text-transform: capitalize;
+}
+.cycleFrame .miniImg {
+    padding:60px;
+}
+.miniImg {
+    width: auto;
+}
+.thumbnail h2.title-thumbnail {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 36px;
+    text-align: center;
+    color: #687A79;
+    text-transform: uppercase;
+    margin-top:20px;
+    width:100%;
+    text-align:center;
+}
+.thumbnail h3.title-thumbnail {
+    font-weight: 600;
     font-size: 16px;
-  }
+    line-height: 36px;
+    text-align: center;
+    color: #687A79;
+    text-transform: capitalize;
+    margin-top: 5px;
 }
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+.thumbnail h2.title-thumbnail~p {
+text-align:justify;
 }

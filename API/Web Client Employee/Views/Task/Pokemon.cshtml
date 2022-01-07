@@ -1,0 +1,159 @@
+﻿@{
+    Layout = "_LayoutLatihan";
+}
+<div class="javaScriptExercise">
+    <div class="row ">
+        <section class="headerbar">...</section>
+        <section class="thumbnail ">
+            <div class="cycleFrame wow slideInRight">
+                <img src="https://cdn.dribbble.com/users/264162/screenshots/16734417/media/282a4351c33576bb1d47b05b59e24a52.png?compress=1&resize=1200x900&vertical=top"
+                     alt="Lama" />
+            </div>
+            <h1 class="title-thumbnail">
+                Amet Consectetur
+            </h1>
+            <p class="desc-thumbnail">
+                Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
+            
+            </p>
+        </section>
+        <section class="menubox">
+            <h1 class="title-menubox">
+                @*MENU TITLE*@
+            </h1>
+            <ul id="menues" class="menues">
+                <li class="box">HOME</li>
+                <li class="box">ANIMAL'S</li>
+                <li class="box">CAT</li>
+            </ul>
+        </section>
+        <section class="expandList">
+            <h1 class="title-menubox">
+                Animal's List
+            </h1>
+            <table class="table ">
+                <thead>
+                    <tr class="table-success">
+                        <th scope="col">No</th>
+                        <th scope="col">Name</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody class="TableList">
+                </tbody>
+            </table>
+        </section>
+    </div>
+
+</div>
+<!-- Modal -->
+<div class="modal fade" id="details" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body spiretes-content">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var dataArray = [];
+    $.ajax({
+        url: "https://pokeapi.co/api/v2/pokemon",
+        success: function (e) {
+            console.log(e);
+            var tableBody = "";
+            $.each(e.results, (key, val) => {
+                tableBody += `
+              <tr class="${key % 2 == 0 ? 'table-Active' : 'table-success'} ">
+                  <th scope="row">${key + 1}</th>
+                  <td>${val.name}</td>
+                   <td><button type="button" class="btn btn-outline-secondary buttonCircle "`;
+                tableBody += `onclick="DetailsAccess('${val.url}')"`;
+                tableBody += `data-toggle="modal" data-target="#details">Detail</button></td>
+                </tr>`;
+            });
+            $('.TableList').html(tableBody);
+
+        }
+    });
+
+    const DetailsAccess = (url) => {
+        console.log("---------From Results------------");
+        console.log(url);
+        $.ajax({
+            url: url,
+            success: function (e) {
+                var tableBody = "";
+                console.log("---------Details Results------------");
+                Abilty = getAbilty(e.abilities);
+                tableBody += ContentSpirets(e.forms[0].name, e.sprites.other.dream_world.front_default,Abilty);
+                new WOW().init();
+                
+                tableBody += EachStats(e.stats);
+                $('.spiretes-content').html(tableBody);
+
+            }
+        });
+    }
+    const EachStats = (stats) => {
+        let data = ``;
+        $.each(stats, (i, val) => {
+            data += `
+              <div class="card-body">
+                 <div class="progress">
+                  <div class="progress-bar" role="progressbar" style="width: ${val.base_stat}%;opacity: ${0.1+(val.base_stat/100)};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">  ${val.base_stat} ${val.stat.name}</div>
+                </div>
+               </div>
+                    `;
+        });
+           return ContentStats(data);
+    }
+    const getAbilty=(dataAblity)=>{
+        let htmDispaly = "";
+        $.each(dataAblity, (i, value) => {
+            console.log("---------From dataAblity Each------------");
+            console.log(value);
+            htmDispaly += `<button type="button" class="btn ${i % 2 == 1 ? 'btn-secondary' :'btn-info'}">${value.ability.name}</button>`;
+        });
+        return htmDispaly ;
+    }
+    const ContentSpirets = (name, url,abilty) => {
+        return `
+                                            <section class="thumbnail">
+                                                <h1 class="title-thumbnail">
+                                                    ${name}
+                                                </h1>
+                                                <div class="cycleFrame mini  ">
+                                                    <img class="miniImg" src="${url}"
+                                                         alt="Lama" />
+                                                </div>
+                                                <h2 class="title-thumbnail">
+                                                   Abilty :<br>
+                                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                                    ${abilty}
+                                                    </div>
+                                                </h2>
+
+
+                                            </section>
+`;
+    }
+    const ContentStats = (data) => {
+        return `
+            <div class="card">
+             <div class="card-header">Stats</div>
+                        ${data}
+            </div>
+`;
+    }
+</script>
