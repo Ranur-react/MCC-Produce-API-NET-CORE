@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "znMLlCw/etMQZYBAfdwxplZlHQcjaYYlrKCvwcYNetPYiwYBpN5XBtbIRECwPrg2jfsN4Ebe5FhCrK94F+h62Q==",
+  "dgSpecHash": "Soy9tRiaDhW2vsRvudcbOli/74GZ8M8BP924LQCNBzVwvlLujgaxBgBcejvrRTmm6BlG/QdCdCRqKj8CijSJFw==",
   "success": true,
   "projectFilePath": "D:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Web Client Employee.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\rahma\\.nuget\\packages\\fontawesome\\4.7.0\\fontawesome.4.7.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.20\\microsoft.aspnetcore.mvc.razor.extensions.3.1.20.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.20\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.20.nupkg.sha512",

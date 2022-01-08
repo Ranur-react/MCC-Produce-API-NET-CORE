@@ -34,6 +34,7 @@ namespace API.Repository.Data
                          on edu.University_Id equals uni.Id
                       select new 
                       {
+                          Nik=emp.NIK,
                           FullName = emp.FirsthName + emp.LastName,
                           PhoneNumber = emp.Phone,
                           Gender= emp.Gender==0?"Laki-Laki":"Perempuan",

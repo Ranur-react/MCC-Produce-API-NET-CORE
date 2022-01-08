@@ -31,6 +31,7 @@
     ".NETCoreApp,Version=v3.1": {
       "Web Client Employee/1.0.0": {
         "dependencies": {
+          "FontAwesome": "4.7.0",
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": "3.1.20",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -322,6 +323,7 @@
           "Web Client Employee.dll": {}
         }
       },
+      "FontAwesome/4.7.0": {},
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
         "dependencies": {
           "System.Text.Encodings.Web": "4.5.0"
@@ -3291,6 +3293,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FontAwesome/4.7.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-n4H/brfszElyoZ4kmGh8E75uqvLzLvFr3h2PFVdPH1LwUmWIpeqdaW2pcC4oZAhg7sESyObh0IZpAI8COCNeUg==",
+      "path": "fontawesome/4.7.0",
+      "hashPath": "fontawesome.4.7.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",

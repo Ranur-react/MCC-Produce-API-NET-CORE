@@ -14417,6 +14417,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\Pokemon.cshtml",
+      "TargetPath": "Views\\Task\\Pokemon.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\DataTable.cshtml",
+      "TargetPath": "Views\\Task\\DataTable.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\Index.cshtml",
+      "TargetPath": "Views\\Task\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
