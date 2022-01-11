@@ -8,7 +8,8 @@ namespace API.Models.ViewModel
 {
     public class RegisterForm
     {
-        public String FirsthName { get; set; }
+        [Required(ErrorMessage = "it must have a value")]
+        public String FirstName { get; set; }
         [Required(ErrorMessage = "it must have a value")]
         public String LastName { get; set; }
         public Gender Gender { get; set; }

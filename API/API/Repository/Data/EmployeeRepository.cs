@@ -35,7 +35,7 @@ namespace API.Repository.Data
                       select new 
                       {
                           Nik=emp.NIK,
-                          FullName = emp.FirsthName + emp.LastName,
+                          FullName = emp.FirsthName +",  "+ emp.LastName,
                           PhoneNumber = emp.Phone,
                           Gender= emp.Gender==0?"Laki-Laki":"Perempuan",
                           Email = emp.Email,
@@ -96,9 +96,19 @@ namespace API.Repository.Data
         }
         public int Register(RegisterForm registerForm) //use postman  to test
         {
-            var empCount = this.GetEmployee().Count() + 1;
-            var Year = DateTime.Now.Year;
-            var formatedNIK = $"{Year}0{empCount.ToString()}";
+            var formatedNIK = "";
+            int countE = this.GetEmployee().Count();
+            if (countE != 0)
+            {
+                string MaxE = this.GetEmployee().Max(e=>e.NIK);
+                formatedNIK = (MaxE + 1).ToString();
+            }
+            else {
+                var empCount = countE + 1;
+                var Year = DateTime.Now.Year;
+                formatedNIK = $"{Year}0{empCount.ToString()}";
+
+            }
             var checkEmailPhone = CheckEmailAndPhone(registerForm);
             if (checkEmailPhone != 1)
             {
@@ -109,7 +119,7 @@ namespace API.Repository.Data
                 var emp = new Employee
                 {
                     NIK = formatedNIK,
-                    FirsthName = registerForm.FirsthName,
+                    FirsthName = registerForm.FirstName,
                     LastName = registerForm.LastName,
                     Phone = registerForm.Phone,
                     BirthDate = registerForm.BirthDate,

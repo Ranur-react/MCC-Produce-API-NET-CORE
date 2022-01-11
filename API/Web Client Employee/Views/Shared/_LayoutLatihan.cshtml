@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Latihan</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/lib/wowo_animated/animate.css" />
     <script src="~/lib/wowo_animated/wow.min.js"></script>
     <script>new WOW().init();</script>
@@ -14,6 +13,8 @@
     <link href="~/lib/fontawesome-free-5.15.4-web/css/fontawesome.css" rel="stylesheet">
     <link href="~/lib/fontawesome-free-5.15.4-web/css/brands.css" rel="stylesheet">
     <link href="~/lib/fontawesome-free-5.15.4-web/css/solid.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.min.css">
+    @RenderSection("CustomeStyle", required: false)
 
 
 </head>
@@ -46,6 +47,7 @@
         </nav>
     </header>
     <div class="container">
+        @RenderSection("Header", required: false)
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
@@ -56,7 +58,11 @@
             &copy; 2022 - Animals - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.4/dist/sweetalert2.all.min.js"></script>
+
     @RenderSection("Scripts", required: false)
 </body>
 </html>

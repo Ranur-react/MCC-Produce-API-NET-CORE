@@ -1,6 +1,9 @@
 ﻿@{
     Layout = "_LayoutLatihan";
 }
+@section CustomeStyle{
+    <link rel="stylesheet" href="~/css/site.css" />
+}
 <div class="javaScriptExercise">
     <div class="row ">
         <section class="headerbar">...</section>
@@ -14,7 +17,7 @@
             </h1>
             <p class="desc-thumbnail">
                 Tincidunt integer eu augue augue nunc elit dolor, luctus placerat scelerisque euismod, iaculis eu lacus nunc mi elit, vehicula ut laoreet ac, aliquam sit amet justo nunc tempor, metus vel.
-            
+
             </p>
         </section>
         <section class="menubox">
@@ -65,7 +68,7 @@
         </div>
     </div>
 </div>
-@section Scripts{ 
+@section Scripts{
     <script src="~/js/site.js" asp-append-version="true"></script>
 }
 <script>
@@ -99,9 +102,9 @@
                 var tableBody = "";
                 console.log("---------Details Results------------");
                 Abilty = getAbilty(e.abilities);
-                tableBody += ContentSpirets(e.forms[0].name, e.sprites.other.dream_world.front_default,Abilty);
+                tableBody += ContentSpirets(e.forms[0].name, e.sprites.other.dream_world.front_default, Abilty);
                 new WOW().init();
-                
+
                 tableBody += EachStats(e.stats);
                 $('.spiretes-content').html(tableBody);
 
@@ -114,23 +117,23 @@
             data += `
               <div class="card-body">
                  <div class="progress">
-                  <div class="progress-bar" role="progressbar" style="width: ${val.base_stat}%;opacity: ${0.1+(val.base_stat/100)};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">  ${val.base_stat} ${val.stat.name}</div>
+                  <div class="progress-bar" role="progressbar" style="width: ${val.base_stat}%;opacity: ${0.1 + (val.base_stat / 100)};" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">  ${val.base_stat} ${val.stat.name}</div>
                 </div>
                </div>
                     `;
         });
-           return ContentStats(data);
+        return ContentStats(data);
     }
-    const getAbilty=(dataAblity)=>{
+    const getAbilty = (dataAblity) => {
         let htmDispaly = "";
         $.each(dataAblity, (i, value) => {
             console.log("---------From dataAblity Each------------");
             console.log(value);
-            htmDispaly += `<button type="button" class="btn ${i % 2 == 1 ? 'btn-secondary' :'btn-info'}">${value.ability.name}</button>`;
+            htmDispaly += `<button type="button" class="btn ${i % 2 == 1 ? 'btn-secondary' : 'btn-info'}">${value.ability.name}</button>`;
         });
-        return htmDispaly ;
+        return htmDispaly;
     }
-    const ContentSpirets = (name, url,abilty) => {
+    const ContentSpirets = (name, url, abilty) => {
         return `
                                             <section class="thumbnail">
                                                 <h1 class="title-thumbnail">

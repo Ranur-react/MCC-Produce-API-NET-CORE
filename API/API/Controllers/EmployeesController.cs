@@ -62,11 +62,11 @@ namespace API.Controllers
                 {
                     if (result == 3)
                     {
-                        return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = "Pastikan Nomor Handphone Milikmu atau Belum Pernah Digunakan " });
+                        return BadRequest(new { status = StatusCodes.Status406NotAcceptable, result, message = "Pastikan Nomor Handphone Milikmu atau Belum Pernah Digunakan " });
                     }
                     else if (result == 2)
                     {
-                        return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = "Pastikan  Email Belum Pernah Digunakan" });
+                        return BadRequest(new { status = StatusCodes.Status406NotAcceptable, result, message = "Pastikan  Email Belum Pernah Digunakan" });
                     }
                     else
                     {
@@ -75,7 +75,7 @@ namespace API.Controllers
                 }
                 else
                 {
-                    return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal Ditambahkan Sudah ada di dalam database" });
+                    return BadRequest(new { status = StatusCodes.Status406NotAcceptable, result, message = $" Data gagal Ditambahkan Sudah ada di dalam database" });
                 }
 
             }
