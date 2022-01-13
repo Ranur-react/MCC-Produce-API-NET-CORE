@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Web_Client_Employee.Base;
+using Web_Client_Employee.Repositories.Data;
 
 namespace Web_Client_Employee
 {
@@ -24,6 +26,9 @@ namespace Web_Client_Employee
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<EmployeeRepository>();
+            services.AddScoped<Address>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

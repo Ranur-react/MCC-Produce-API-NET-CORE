@@ -27,9 +27,9 @@ namespace API.Controllers
         public ActionResult TestCors() {
             return Ok("test Cors berhasil guys");
         }
-        [Route("RegisteredData")]
+        [Route("RegisteredData/{frontend}")]
         [HttpGet]
-        public ActionResult RegisteredData()
+        public ActionResult RegisteredData(String frontend)
         {
 
             try
@@ -37,7 +37,14 @@ namespace API.Controllers
                 var result = employeeRepository.RegisteredData();
                 if (result.Count() > 0)
                 {
-                    return Ok(new { status = StatusCodes.Status200OK, result, message = $" {result.Count()} Data Berhasil Didapatkan" });
+                    if (frontend == "1")
+                    {
+                        return Ok(new ApiRespondForm  { Status = StatusCodes.Status200OK, Results=result, Message= $" {result.Count()} Data Berhasil Didapatkan {frontend}" });
+                    }
+                    else { 
+                        return Ok(result);
+                    
+                    }
                 }
                 else
                 {

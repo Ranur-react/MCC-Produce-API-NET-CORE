@@ -20,6 +20,14 @@ namespace Web_Client_Employee.Controllers
         {
             return View();
         }
+        public IActionResult Chart()
+        {
+            return View();
+        }
+        public IActionResult ChartEmployees()
+        {
+            return View();
+        }
 
     }
 }

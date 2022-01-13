@@ -1,0 +1,304 @@
+﻿@{
+    Layout = "_LayoutSBAdmin";
+    ViewData["Title"] = "Data Karyawan";
+}
+@section Header{
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <button type="button" data-toggle="modal" data-target="#AddModal" class="btn btn-outline-primary "> <i class="fas fa-plus"></i> Tambah Data</button>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+}
+<div class="row ">
+    <div class="col-lg-12 ">
+
+        <div class="table-responsive">
+            <table class="table table-bordered" id="EmployeeTable">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th >Name</th>
+                        <th>NIK</th>
+                        <th>Phone</th>
+                        <th>Gender</th>
+                        <th>E-mail</th>
+                        <th>Birth Date</th>
+                        <th>Sallary</th>
+                        @*                        <th>Gpa</th>
+                            <th>Degre</th>
+                            <th>University Name</th>*@
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">..</th>
+                        <td>...</td>
+                        <td>....</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        <td>...</td>
+                        @*                        <td>...</td>
+                            <td>...</td>
+                            <td>...</td>*@
+                        <td>...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- Modal Tambah-->
+<div class="modal fade" id="AddModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Tambah Data</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form-tambah">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="NIKAdd" class="form-label"><i class="fas fa-user"></i> Employee ID</label>
+                                <input type="text" required class="form-control" id="NIKAdd" aria-describedby="NIKHelp" required>
+                                <div id="NIKHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="FirstNameAdd" class="form-label"><i class="fas fa-user"></i> First Name</label>
+                                <input type="text" required class="form-control" id="FirstNameAdd" aria-describedby="firstNameHelp" required>
+                                <div id="FirstNameHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="LastNameAdd" class="form-label"><i class="fas fa-user"></i> Last Name</label>
+                                <input type="text" required class="form-control" id="LastNameAdd" aria-describedby="lastNameHelp" required>
+                                <div id="LastNameHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="PhoneAdd" class="form-label"><i class="fas fa-phone"></i> Phone</label>
+                                <input type="tel" required class="form-control" id="PhoneAdd" aria-describedby="phoneHelp">
+                                <div id="PhoneHelp" class="form-text text-info"></div>
+                            </div>
+
+
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="BirthDateAdd" class="form-label"><i class="fas fa-calendar"></i> BirthDate</label>
+                                <input type="date" required class="form-control" id="BirthDateAdd" aria-describedby="birthDateHelp" required>
+                                <div id="BirthDateHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="SalaryAdd" class="form-label"><i class="fas fa-money-bill"></i> Sallary</label>
+                                <input value="0" type="number" required class="form-control" id="SalaryAdd" aria-describedby="SalaryHelp" required>
+                                <div id="SalaryHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="EmailAdd" class="form-label"><i class="fas fa-mail-bulk"></i> Email address</label>
+                                <input type="email" class="form-control" id="EmailAdd" aria-describedby="emailHelp">
+                                <div id="EmailHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="GenderAdd" class="form-label"><i class="fas fa-user"></i> Gender</label>
+                                <select class="form-select form-control" id="GenderAdd" aria-label="Default select example">
+                                    <option value="0">Male</option>
+                                    <option value="1">Female</option>
+                                </select>
+                            </div>
+                            @*<div class="mb-3">
+                                    <label for="PasswordAdd" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="PasswordAdd" required>
+                                    <div id="PasswordHelp" class="form-text text-info"></div>
+
+                                </div>
+                                <div class="mb-3">
+                                    <label for="DegreeAdd" class="form-label"><i class="fas fa-user-graduate"></i> Degree</label>
+                                    <select class="form-select form-control" id="DegreeAdd" aria-label="Default select example">
+                                        <option value="S2">Magister</option>
+                                        <option value="S1">Strata I</option>
+                                        <option value="D3">Diploma (3) </option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="gpaAdd" class="form-label"><i class="fas fa-certificate"></i> GPA</label>
+                                    <input type="number" value="0" required class="form-control" id="gpaAdd" aria-describedby="gpaHelp" required>
+                                    <div id="GPAHelp" class="form-text text-info"></div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="UniversityAdd" class="form-label"><i class="fas fa-building"></i> University</label>
+                                    <select class="form-select form-control" id="UniversityAdd" aria-label="Default select example">
+                                        <option value="1">Institut Teknologi Padang</option>
+                                        <option value="2">Institut Teknologi Bandung</option>
+                                        <option value="3">STMIK AMIK Jayanusa</option>
+                                    </select>
+                                </div>*@
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" id="truthCheckAdd" required>
+                                <label class="form-check-label" for="truthCheck">Centang jika Yakin data sudah benar</label>
+                                <div id="truthHelp" class="form-text text-danger"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success rounded-circle" onclick="submit('store')"> <i class="fas fa-save"></i></button>
+                <button type="button" data-dismiss="modal" class="btn btn-outline-secondary rounded-circle "> <i class="fas fa-share"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Update-->
+
+<div class="modal fade" id="UpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Update Employee</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class=" form-tambah">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="NIKEdit" class="form-label"><i class="fas fa-user"></i> Employee ID</label>
+                                <input type="text" required class="form-control" id="NIKEdit" readonly aria-describedby="NIKHelp" required>
+                                <div id="NIKHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="FirstNameEdit" class="form-label"><i class="fas fa-user"></i> First Name</label>
+                                <input type="text" required class="form-control" id="FirstNameEdit" aria-describedby="firstNameHelp" required>
+                                <div id="FirstNameHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="LastNameEdit" class="form-label"><i class="fas fa-user"></i> Last Name</label>
+                                <input type="text" required class="form-control" id="LastNameEdit" aria-describedby="lastNameHelp" required>
+                                <div id="LastNameHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="PhoneEdit" class="form-label"><i class="fas fa-phone"></i> Phone</label>
+                                <input type="tel" required class="form-control" id="PhoneEdit" aria-describedby="phoneHelp">
+                                <div id="PhoneHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="BirthDateEdit" class="form-label"><i class="fas fa-calendar"></i> BirthDate</label>
+                                <input type="date" required value="1998/02/28" class="form-control" id="BirthDateEdit" aria-describedby="birthDateHelp" required>
+                                <div id="BirthDateHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="SalaryEdit" class="form-label"><i class="fas fa-money-bill"></i> Sallary</label>
+                                <input value="0" type="number" required class="form-control" id="SalaryEdit" aria-describedby="SalaryHelp" required>
+                                <div id="SalaryHelp" class="form-text text-info"></div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="EmailEdit" class="form-label"><i class="fas fa-mail-bulk"></i> Email address</label>
+                                <input type="email" class="form-control" id="EmailEdit" aria-describedby="emailHelp">
+                                <div id="EmailHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="GenderEdit" class="form-label"><i class="fas fa-user"></i> Gender</label>
+                                <select class="form-select form-control" id="GenderEdit" aria-label="Default select example">
+                                    <option value="0">Male</option>
+                                    <option value="1">Female</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="PasswordEdit" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="PasswordEdit">
+                                <div id="PasswordHelp" class="form-text text-info"></div>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="DegreeEdit" class="form-label"><i class="fas fa-user-graduate"></i> Degree</label>
+                                <select class="form-select form-control" id="DegreeEdit" aria-label="Default select example">
+                                    <option value="S2">Magister</option>
+                                    <option value="S1">Strata I</option>
+                                    <option value="D3">Diploma (3) </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="gpaEdit" class="form-label"><i class="fas fa-certificate"></i> GPA</label>
+                                <input type="number" value="0" required class="form-control" id="gpaEdit" aria-describedby="gpaHelp" required>
+                                <div id="GPAHelp" class="form-text text-info"></div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="UniversityEdit" class="form-label"><i class="fas fa-building"></i> University</label>
+                                <select class="form-select form-control" id="UniversityEdit" aria-label="Default select example">
+                                    <option value="1">Institut Teknologi Padang</option>
+                                    <option value="2">Institut Teknologi Bandung</option>
+                                    <option value="3">STMIK AMIK Jayanusa</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-success rounded-circle" onclick="submit('update')"> <i class="fas fa-save"></i></button>
+                <button type="button" data-dismiss="modal" class="btn btn-outline-secondary rounded-circle "> <i class="fas fa-share"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Hapus-->
+<div class="modal fade" id="DeleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body spiretes-content">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal PopUp-->
+<div class="modal fade" id="popUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header ">
+                <div class="popup-header">
+                </div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body popup-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+@*end modal*@
+@section Scripts{
+    <script src="~/js/Helper/Curency.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/js/Employees/employeesAjax.js"></script>
+}

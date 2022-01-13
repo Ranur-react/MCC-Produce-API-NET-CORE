@@ -8,6 +8,8 @@ namespace API.Models.ViewModel
 {
     public class RegisterForm
     {
+        public virtual String NIK { get; set; }
+        public String FullName { get; set; }
         [Required(ErrorMessage = "it must have a value")]
         public String FirstName { get; set; }
         [Required(ErrorMessage = "it must have a value")]
@@ -21,13 +23,15 @@ namespace API.Models.ViewModel
         [EmailAddress(ErrorMessage = "it's must as Email value, please rechek your typing value, use @ symbol for representations domain after mailName")]
         public String Email { get; set; }
         [Required(ErrorMessage = "it must have a value")]
-  /*      [RegularExpression(@"[a-z]+[A-Z]+", ErrorMessage = "Passwor must Containe one Uppercase,One Lower,number,and one  symbol must more then 8 Case Caracter")]*/
-        public String Password { get; set; }
+        public virtual String Password { get; set; }
         public String Degree { get; set; }
         [Required(ErrorMessage = " it must have a value")]
         public float GPA { get; set; }
+        public int Educations_Id { get; set; }
         [Required(ErrorMessage = " it must have a value")]
         public int University_Id { get; set; }
+        public String UniversityName { get; set; }
+
 
     }
 

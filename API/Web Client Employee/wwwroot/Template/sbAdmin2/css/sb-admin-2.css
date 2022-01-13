@@ -10859,7 +10859,11 @@ a:focus {
     height: calc(20rem - 43px) !important;
   }
 }
-
+.bg-corp-image {
+    background: url("https://livemtdl.azurewebsites.net/web/images/csr/20191029040911.jpg");
+    background-position: center;
+    background-size: cover;
+}
 .bg-login-image {
   background: url("https://source.unsplash.com/K4mSJ7kc0As/600x800");
   background-position: center;

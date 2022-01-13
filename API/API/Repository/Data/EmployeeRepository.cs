@@ -32,18 +32,22 @@ namespace API.Repository.Data
                         on prof.Education_Id equals edu.Id
                       join uni in myContext.Universities
                          on edu.University_Id equals uni.Id
-                      select new 
+                      select new RegisterForm
                       {
-                          Nik=emp.NIK,
+                          NIK = emp.NIK,
                           FullName = emp.FirsthName +",  "+ emp.LastName,
-                          PhoneNumber = emp.Phone,
-                          Gender= emp.Gender==0?"Laki-Laki":"Perempuan",
+                          FirstName=emp.FirsthName,
+                          LastName=emp.LastName,
+                          Phone = emp.Phone,
+                          Gender= emp.Gender,
                           Email = emp.Email,
                           BirthDate = emp.BirthDate,
                           Salary = emp.Salary,
+                          Educations_Id=edu.Id,
                           GPA = edu.GPA,
                           Degree = edu.Degree,
-                          UniversityName = uni.UniversityName
+                          University_Id = uni.Id,
+                          UniversityName = uni.UniversityName 
                       };
             return qry;
             /*              var qry = from emp in myContext.Employees
@@ -101,7 +105,7 @@ namespace API.Repository.Data
             if (countE != 0)
             {
                 string MaxE = this.GetEmployee().Max(e=>e.NIK);
-                formatedNIK = (MaxE + 1).ToString();
+                formatedNIK = (Int32.Parse(MaxE) + 1).ToString();
             }
             else {
                 var empCount = countE + 1;
@@ -123,7 +127,7 @@ namespace API.Repository.Data
                     LastName = registerForm.LastName,
                     Phone = registerForm.Phone,
                     BirthDate = registerForm.BirthDate,
-                    Salary = 5000000,
+                    Salary = registerForm.Salary,
                     Email = registerForm.Email,
                     Gender = registerForm.Gender
                 };

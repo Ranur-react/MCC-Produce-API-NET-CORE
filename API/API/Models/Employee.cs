@@ -44,10 +44,11 @@ namespace API.Models
         public virtual DateTime BirthDate { get; set; }
         [Range(4600000, 50000000, ErrorMessage = "length of value must start from 4.600.000 to 50.000.000")]
         public int Salary { get; set; }
+        [Required(ErrorMessage = "it must have a value")]
         [EmailAddress(ErrorMessage ="it's must as Email value, please rechek your typing value, use @ symbol for representations domain after mailName")]
         public virtual String Email{ get; set; }
         public Gender Gender { get; set; }
-        /* [JsonIgnore]*/
+         [JsonIgnore]
         public virtual Account Account { get; set; }  //one to one with Account
     }
 

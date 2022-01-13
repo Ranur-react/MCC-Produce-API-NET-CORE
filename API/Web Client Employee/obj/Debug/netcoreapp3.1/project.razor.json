@@ -14407,6 +14407,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Employees\\Index.cshtml",
+      "TargetPath": "Views\\Employees\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Exercises\\Index.cshtml",
       "TargetPath": "Views\\Exercises\\Index.cshtml",
       "FileKind": "mvc"
@@ -14419,6 +14424,21 @@
     {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\Pokemon.cshtml",
       "TargetPath": "Views\\Task\\Pokemon.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Shared\\_LayoutSBAdmin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutSBAdmin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Logins\\Index.cshtml",
+      "TargetPath": "Views\\Logins\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\ChartEmployees.cshtml",
+      "TargetPath": "Views\\Task\\ChartEmployees.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14442,6 +14462,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\Chart.cshtml",
+      "TargetPath": "Views\\Task\\Chart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14462,8 +14487,18 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Shared\\_LayoutSBLogin.cshtml",
+      "TargetPath": "Views\\Shared\\_LayoutSBLogin.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Employees\\Chart.cshtml",
+      "TargetPath": "Views\\Employees\\Chart.cshtml",
       "FileKind": "mvc"
     }
   ],

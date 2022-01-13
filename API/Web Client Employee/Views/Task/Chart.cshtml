@@ -1,0 +1,49 @@
+﻿@{
+    Layout = "_LayoutSBAdmin";
+    ViewData["Title"] = "Data Karyawan";
+}
+@section Header{
+    <div class="row mb-3">
+        <div class="col-sm-4">
+            <h1>Apex Chart Consume's</h1>
+        </div>
+        <div class="col-sm-8"></div>
+    </div>
+}
+
+@*body*@
+<div class="row">
+    @*Chart Line*@
+    <div class="col-lg-4 m-1">
+        <div class="card shadow h-100">
+            <div class="card-header py-3">
+                <h1>Chart Line</h1>
+            </div>
+            <div class="card-body">
+                <div id="chartLine">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    @*Chart Line*@
+    <div class="col-lg-4 m-1">
+        <div class="card shadow h-100">
+            <div class="card-header py-3">
+                <h1>Chart Pie</h1>
+            </div>
+            <div class="card-body">
+                <div id="chartPie">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src="~/js/ChartConf/ChartConsume.js" ></script>
+}
