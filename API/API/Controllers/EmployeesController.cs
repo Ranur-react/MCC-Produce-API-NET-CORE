@@ -77,7 +77,7 @@ namespace API.Controllers
                     }
                     else
                     {
-                        return Ok(new { status = StatusCodes.Status201Created, result, message = "Data Berhasil Didaftarkan" });
+                        return Ok(new { Status = StatusCodes.Status201Created, result, Message = "Data Berhasil Didaftarkan" });
                     }
                 }
                 else

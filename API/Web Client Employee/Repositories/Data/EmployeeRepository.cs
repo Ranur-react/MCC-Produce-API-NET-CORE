@@ -42,17 +42,5 @@ namespace Web_Client_Employee.Repositories.Data
 
             return entities;
         }
-        public HttpStatusCode Register(RegisterForm entity)
-        {
-            StringContent content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, "application/json");
-            var result = httpClient.PostAsync(address.link + request, content).Result;
-            return result.StatusCode;
-        }
-        public HttpStatusCode Insert(EmployeeC entity)
-        {
-            StringContent content = new StringContent(JsonConvert.SerializeObject(entity), Encoding.UTF8, "application/json");
-            var result = httpClient.PostAsync(address.link + request, content).Result;
-            return result.StatusCode;
-        }
     }
 }

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IcIjPy5XZqg+Iy/0PIA+imrNK8TnLmbdkGl6S2cuTXtOYFbW/9jJEsxlTAYC39mfv7O6EAMs3YdCrZfVGXQBjg==",
+  "dgSpecHash": "7PWNOpjbGPfqzRKkSYpXP7HQfYRnlQT7CcASlrb5vBQT7iM1E7mf6HAgtsYAbV2unWmrbbczsQS1m+mq5ZNGRA==",
   "success": true,
   "projectFilePath": "D:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Web Client Employee.csproj",
   "expectedPackageFiles": [
@@ -10,6 +10,8 @@
     "C:\\Users\\rahma\\.nuget\\packages\\mailkit\\3.0.0\\mailkit.3.0.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.8\\microsoft.aspnetcore.authentication.jwtbearer.3.1.8.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.html.abstractions\\2.2.0\\microsoft.aspnetcore.html.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.0.0\\microsoft.aspnetcore.jsonpatch.3.0.0.nupkg.sha512",
+    "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.mvc.newtonsoftjson\\3.0.0\\microsoft.aspnetcore.mvc.newtonsoftjson.3.0.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.extensions\\3.1.20\\microsoft.aspnetcore.mvc.razor.extensions.3.1.20.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.mvc.razor.runtimecompilation\\3.1.20\\microsoft.aspnetcore.mvc.razor.runtimecompilation.3.1.20.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
@@ -21,7 +23,7 @@
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.codeanalysis.csharp.workspaces\\3.3.1\\microsoft.codeanalysis.csharp.workspaces.3.3.1.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.codeanalysis.razor\\3.1.20\\microsoft.codeanalysis.razor.3.1.20.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\3.3.1\\microsoft.codeanalysis.workspaces.common.3.3.1.nupkg.sha512",
-    "C:\\Users\\rahma\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\rahma\\.nuget\\packages\\microsoft.csharp\\4.6.0\\microsoft.csharp.4.6.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\microsoft.entityframeworkcore\\5.0.11\\microsoft.entityframeworkcore.5.0.11.nupkg.sha512",
@@ -64,6 +66,7 @@
     "C:\\Users\\rahma\\.nuget\\packages\\mimekit\\3.0.0\\mimekit.3.0.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\rahma\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\nuget.frameworks\\4.7.0\\nuget.frameworks.4.7.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\rahma\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

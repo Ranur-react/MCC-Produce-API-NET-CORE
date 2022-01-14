@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -70,7 +71,7 @@ namespace API.Controllers
             try
             {
                 var result = accountRepository.RegisteredData(Email);
-                var testPrint = "";
+             
               
                 if (result != null)
                 {
@@ -218,12 +219,14 @@ namespace API.Controllers
                         var idToken = new JwtSecurityTokenHandler().WriteToken(token);
                         calaims.Add(new Claim("TokenSecurity", idToken.ToString()));
 
-                        return Ok(new { status = StatusCodes.Status201Created, idToken, result, message = "Login Berhasil" });
+                        return Ok(new JWTTokenVM  { Status = HttpStatusCode.OK, IdToken= idToken, Result= result, Message = "Login Berhasil" });
                     }
                 }
                 else
                 {
-                    return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal Ditambahkan Sudah ada di dalam database" });
+                    return Ok(new JWTTokenVM { Status = HttpStatusCode.BadRequest,  Result = result, Message = "Login Gagal" });
+
+                    //return BadRequest(new { status = StatusCodes.Status400BadRequest, result, message = $" Data gagal Ditambahkan Sudah ada di dalam database" });
                 }
 
             }

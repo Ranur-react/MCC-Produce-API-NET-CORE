@@ -244,6 +244,7 @@ const PopUpFailure= (title, content) => {
 const Edit = (data) => {
     console.log("---- Data Send to Form Edit----------");
     console.log(data);
+    ambilDetailDataRegister(data.nik);
     $('#NIKEdit').val(data.nik);
     $('#FirstNameEdit').val(data.firsthName);
     $('#LastNameEdit').val(data.lastName);
@@ -251,10 +252,37 @@ const Edit = (data) => {
     $('#EmailEdit').val(data.email);
     $('#BirthDateEdit').val(new Date(data.birthDate +"Z").toISOString().substring(0, 10));
     $('#SalaryEdit').val(data.salary);
-    $('#DegreeEdit').val(data.degree);
-    $('#gpaEdit').val(data.gpa);
-    $('#UniversityEdit').val(data.university_Id);
+   
 
+}
+const ambilDetailDataRegister = (nik) => {
+    $.ajax({
+        url: "/Employees/Get/"+nik,
+        type:"GET",
+    }).done((result) => {
+        if (!result.account) {
+            $('#PasswordHelp').text("Akun Login belum Dibuat, Silahkan set Password agar user dapat login sistem");
+
+            $('#DegreeEdit').val("");
+            $('#gpaEdit').val("");
+        } else {
+            $('#PasswordHelp').text("");
+            console.log(result.account.profiling)
+            if (!result.account.profiling) {
+                $('#DegreeEdit').val("");
+                $('#gpaEdit').val("");
+            } else {
+                console.log(result.account.profiling)
+                $('#DegreeEdit').val(result.account.profiling.education.degree);
+                $('#gpaEdit').val(result.account.profiling.education.gpa);
+                $('#UniversityEdit').val(result.account.profiling.education.university.id);
+            }
+/*            $('#gpaEdit').val(data.gpa);
+            $('#UniversityEdit').val(data.university_Id);*/
+        }
+
+
+    })
 }
 const Remove = (id) => {
     $.ajax({
@@ -291,7 +319,6 @@ $(document).ready(function () {
 const Details = (data) => {
     var table = "";
     $.each(data, (k, val) => {
-    console.log(k);
         table += `<tr><td class="text-left">${k.toUpperCase()}</td><td class="text-left">: ${val}</td></tr>`;
     });
 

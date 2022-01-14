@@ -1,12 +1,11 @@
 ﻿@{
     Layout = "_LayoutSBAdmin";
-    ViewData["Title"] = "Data Karyawan";
+    ViewData["Title"] = "Data Account";
 }
 @section Header{
     <div class="row mb-3">
         <div class="col-sm-4">
-            <button type="button" data-toggle="modal" data-target="#AddModal" class="btn btn-outline-warning "> <i class="fas fa-plus"></i> Tambah Data Master</button>
-            <button type="button" class="btn btn-outline-primary " onclick="window.location.href='/Accounts/Register/?src=admin'"> <i class="fas fa-user"></i> New Employees</button>
+            <button type="button" data-toggle="modal" data-target="#AddModal" class="btn btn-outline-primary "> <i class="fas fa-plus"></i> Tambah Data</button>
         </div>
         <div class="col-sm-8"></div>
     </div>
@@ -18,17 +17,13 @@
             <table class="table table-bordered" id="EmployeeTable">
                 <thead>
                     <tr>
-                        <th>No.</th>
-                        <th >Name</th>
+                        <th class="text-right">No.</th>
                         <th>NIK</th>
+                        <th>Email</th>
                         <th>Phone</th>
-                        <th>Gender</th>
-                        <th>E-mail</th>
-                        <th>Birth Date</th>
+                        <th>Password</th>
+                        <th>Roles</th>
                         <th>Sallary</th>
-                        @*                        <th>Gpa</th>
-                            <th>Degre</th>
-                            <th>University Name</th>*@
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -41,10 +36,6 @@
                         <td>...</td>
                         <td>...</td>
                         <td>...</td>
-                        <td>...</td>
-                        @*                        <td>...</td>
-                            <td>...</td>
-                            <td>...</td>*@
                         <td>...</td>
                     </tr>
                 </tbody>
@@ -223,7 +214,11 @@
                             </div>
                             <div class="mb-3">
                                 <label for="DegreeEdit" class="form-label"><i class="fas fa-user-graduate"></i> Degree</label>
-                                <input type="text" class="form-control" id="DegreeEdit" >
+                                <select class="form-select form-control" id="DegreeEdit" aria-label="Default select example">
+                                    <option value="S2">Magister</option>
+                                    <option value="S1">Strata I</option>
+                                    <option value="D3">Diploma (3) </option>
+                                </select>
                             </div>
                             <div class="mb-3">
                                 <label for="gpaEdit" class="form-label"><i class="fas fa-certificate"></i> GPA</label>
@@ -297,5 +292,5 @@
     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="~/js/Employees/employeesAjax.js"></script>
+    <script type="text/javascript" charset="utf8" src="~/js/Accounts/accountsAjax.js"></script>
 }

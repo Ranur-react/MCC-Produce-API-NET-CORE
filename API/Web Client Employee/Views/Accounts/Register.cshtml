@@ -1,0 +1,121 @@
+﻿
+@{
+    Layout = "_LayoutSBLogin";
+    ViewData["Title"] = "Report";
+
+
+}
+<!-- Outer Row -->
+<div class="row justify-content-center">
+
+    <div class="col-xl-12 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-6 d-none d-lg-block bg-register-image"></div>
+                    <div class="col-lg-6">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">@ViewData["WelComeTitle"]</h1>
+                            </div>
+                            <hr>
+                            <form class="form-tambah">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="mb-3">
+                                            <label for="FirstNameAdd" class="form-label"><i class="fas fa-user"></i> First Name</label>
+                                            <input type="text" required class="form-control" id="FirstNameAdd" aria-describedby="firstNameHelp" required>
+                                            <div id="FirstNameHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="LastNameAdd" class="form-label"><i class="fas fa-user"></i> Last Name</label>
+                                            <input type="text" required class="form-control" id="LastNameAdd" aria-describedby="lastNameHelp" required>
+                                            <div id="LastNameHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="PhoneAdd" class="form-label"><i class="fas fa-phone"></i> Phone</label>
+                                            <input type="tel" required class="form-control" id="PhoneAdd" aria-describedby="phoneHelp">
+                                            <div id="PhoneHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="BirthDateAdd" class="form-label"><i class="fas fa-calendar"></i> BirthDate</label>
+                                            <input type="date" required class="form-control" id="BirthDateAdd" aria-describedby="birthDateHelp" required>
+                                            <div id="BirthDateHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="SalaryAdd" class="form-label"><i class="fas fa-money-bill"></i> Sallary</label>
+                                            <input value="0" type="number" required class="form-control" id="SalaryAdd" aria-describedby="SalaryHelp" required>
+                                            <div id="SalaryHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="EmailAdd" class="form-label"><i class="fas fa-mail-bulk"></i> Email address</label>
+                                            <input type="email" class="form-control" id="EmailAdd" aria-describedby="emailHelp">
+                                            <div id="EmailHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="PasswordAdd" class="form-label">Password</label>
+                                            <input type="password" class="form-control" id="PasswordAdd" required>
+                                            <div id="PasswordHelp" class="form-text text-info"></div>
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-6">
+
+                                        <div class="mb-3">
+                                            <label for="GenderAdd" class="form-label"><i class="fas fa-user"></i> Gender</label>
+                                            <select class="form-select form-control" id="GenderAdd" aria-label="Default select example">
+                                                <option value="0">Male</option>
+                                                <option value="1">Female</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="DegreeAdd" class="form-label"><i class="fas fa-user-graduate"></i> Degree</label>
+                                            <input type="text" class="form-control" id="DegreeAdd" placeholder="Sarjana (S1) Sistem Komputer">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="gpaAdd" class="form-label"><i class="fas fa-certificate"></i> GPA</label>
+                                            <input type="number" value="0" required class="form-control" id="gpaAdd" aria-describedby="gpaHelp" required>
+                                            <div id="GPAHelp" class="form-text text-info"></div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="UniversityAdd" class="form-label"><i class="fas fa-building"></i> University</label>
+                                            <select class="form-select form-control" id="UniversityAdd" aria-label="Default select example">
+                                                <option value="1">Institut Teknologi Padang</option>
+                                                <option value="2">Institut Teknologi Bandung</option>
+                                                <option value="3">STMIK AMIK Jayanusa</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="truthCheckAdd" required>
+                                            <label class="form-check-label" for="truthCheck">Centang jika Yakin data sudah benar</label>
+                                            <div id="truthHelp" class="form-text text-danger"></div>
+                                        </div>
+                                    </div>
+                                    <a href="#" onclick="storeToApi('@ViewData["src"]')" class="btn btn-primary btn-user btn-block btn">
+                                        Register
+                                    </a>
+                                </div>
+                            </form>
+                            <hr>
+                            <div class="text-center">
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="/Logins">Login</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+@section Scripts{
+
+    <script src="~/js/Registers/registerAjax.js"></script>
+}

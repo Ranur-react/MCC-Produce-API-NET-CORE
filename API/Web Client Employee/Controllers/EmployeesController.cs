@@ -12,13 +12,14 @@ using Web_Client_Employee.Repositories.Data;
 
 namespace Web_Client_Employee.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class EmployeesController : BaseController<Employee, EmployeeRepository, string>
     {
         private readonly EmployeeRepository employeeRepository;
         public EmployeesController(EmployeeRepository repository) : base(repository)
         {
             this.employeeRepository = repository;
+
         }
 
         public IActionResult Index()
@@ -33,29 +34,6 @@ namespace Web_Client_Employee.Controllers
         public async Task<JsonResult> GetRegistered()
         {
             var result = await employeeRepository.GetRegistered();
-            return Json(result);
-        }
-        [HttpPost]
-        public ActionResult<EmployeeC> Insert(EmployeeC entity)
-        {
-            try
-            {
-            var result = employeeRepository.Insert(entity);
-                return Json(result);
-
-            }
-            catch (Exception e)
-            {
-
-                return Json(new { Message = e.Message });
-            }
-        }
-
-        [Route("Register")]
-        [HttpPost]
-        public JsonResult Register(RegisterForm entity)
-        {
-            var result = employeeRepository.Register(entity);
             return Json(result);
         }
     }

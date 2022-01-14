@@ -14422,6 +14422,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Dashboard\\Index.cshtml",
+      "TargetPath": "Views\\Dashboard\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Task\\Pokemon.cshtml",
       "TargetPath": "Views\\Task\\Pokemon.cshtml",
       "FileKind": "mvc"
@@ -14467,6 +14472,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Accounts\\Index.cshtml",
+      "TargetPath": "Views\\Accounts\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "TargetPath": "Views\\Shared\\_ValidationScriptsPartial.cshtml",
       "FileKind": "mvc"
@@ -14494,6 +14504,11 @@
     {
       "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Shared\\Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\MCC\\MVC\\API2\\API\\Web Client Employee\\Views\\Accounts\\Register.cshtml",
+      "TargetPath": "Views\\Accounts\\Register.cshtml",
       "FileKind": "mvc"
     },
     {

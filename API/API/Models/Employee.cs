@@ -48,7 +48,7 @@ namespace API.Models
         [EmailAddress(ErrorMessage ="it's must as Email value, please rechek your typing value, use @ symbol for representations domain after mailName")]
         public virtual String Email{ get; set; }
         public Gender Gender { get; set; }
-         [JsonIgnore]
+        // [JsonIgnore]
         public virtual Account Account { get; set; }  //one to one with Account
     }
 
