@@ -43,6 +43,19 @@ namespace Web_Client_Employee.Repositories.Data
 
             return token;
         }
+        public RequestLoginsForms AuthJson(LoginForm login)
+        {
+            RequestLoginsForms token = new RequestLoginsForms();
+            StringContent content = new StringContent(JsonConvert.SerializeObject(login), Encoding.UTF8, "application/json");
+
+            using (var response = httpClient.PostAsync(address.link + request + "Logins", content).Result)
+            {
+                string apiResponse = response.Content.ReadAsStringAsync().Result;
+                token = JsonConvert.DeserializeObject<RequestLoginsForms>(apiResponse);
+            }
+
+            return token;
+        }
         public Object Register(RegisterForm entity)
         {
             Object entities = new Object();

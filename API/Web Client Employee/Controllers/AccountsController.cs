@@ -3,6 +3,7 @@ using API.Models.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +27,7 @@ namespace Web_Client_Employee.Controllers
         {
             return View();
         }
-        [Authorize]
+            
         [HttpGet]
         public IActionResult Logout()
         {
@@ -51,12 +52,32 @@ namespace Web_Client_Employee.Controllers
 
             return RedirectToAction("index", "Dashboard");
         }
+        
         public IActionResult Register(string src)
         {
             ViewData["src"] = src;
             ViewData["WelComeTitle"] = src == "admin" ? "Add New Employees" : "Welcomes Candiadtes Let's Join with us " ;
             return View();
         }
+        [HttpPost]
+        public ActionResult<Object> AuthLogin(LoginForm entity)
+        {
+            var result = accountRepository.AuthJson(entity);
+            try
+            {
+                if (result.idToken != null) {
+                    HttpContext.Session.SetString("JWToken", result.idToken);
+                }
+                return Json(result);
+
+            }
+            catch (Exception e)
+            {
+
+                return Json(new { Message = e.Message });
+            }
+        }
+
         [HttpPost]
         public  ActionResult<Object> RegisterNew(RegisterForm entity)
         {

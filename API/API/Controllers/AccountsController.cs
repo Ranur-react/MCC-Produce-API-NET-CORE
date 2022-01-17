@@ -159,6 +159,82 @@ namespace API.Controllers
                 return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errors = e.Message });
             }
         }
+        [Route("Logins")]
+        [HttpPost]
+        public ActionResult Logins(LoginForm loginForm)
+        {
+            try
+            {
+
+                var result = accountRepository.Login(loginForm);
+                if (result > 0)
+                {
+                    if (result == 3)
+                    {
+                        return BadRequest(new RequestLoginsForms { status = StatusCodes.Status400BadRequest, result=result, message = "Akun ditemukan,Password salah" });
+                    }
+                    else if (result == 2)
+                    {
+                        return BadRequest(new RequestLoginsForms { status = StatusCodes.Status400BadRequest, result=result, message = "Akun tidak ditemukan, email yang digunakan tidak terdaftar didatabase " });
+                    }
+                    else
+                    {
+                        var get = accountRepository.RegisteredData(loginForm.Email).AccountRole;
+                        var role = "";
+                        int n = 0;
+                        foreach (var item in get)
+                        {
+                            n++;
+                            if (n == get.Count)
+                            {
+                                role += $"{item.Role.Name}";
+                            }
+                            else
+                            {
+                                role += $"{item.Role.Name},";
+
+                            }
+                        }
+                        var data = new LoginForm
+                        {
+                            Email = loginForm.Email,
+                            Role = role
+                        };
+                        var calaims = new List<Claim> {
+                            new Claim("Email",data.Email),
+                        };
+                        foreach (var item in get)
+                        {
+                            calaims.Add(new Claim("roles", item.Role.Name));
+                        }
+                        var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_Configuration["Jwt:Key"]));
+                        var signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+                        var token = new JwtSecurityToken(
+                            _Configuration["Jwt:Issuer"],
+                            _Configuration["Jwt:Audience"],
+                            calaims,
+                            expires: DateTime.UtcNow.AddMinutes(10),
+                            signingCredentials: signIn
+
+                            );
+                        var idToken = new JwtSecurityTokenHandler().WriteToken(token);
+                        calaims.Add(new Claim("TokenSecurity", idToken.ToString()));
+
+                        return Ok(new RequestLoginsForms { status = StatusCodes.Status200OK, idToken = idToken, result=result, message = "Login Berhasil" });
+                    }
+                }
+                else
+                {
+
+                    return BadRequest(new RequestLoginsForms { status = StatusCodes.Status400BadRequest, result=result, message = $" Data gagal Ditambahkan Sudah ada di dalam database" });
+                }
+
+            }
+            catch (Exception e)
+            {
+                return BadRequest(new { status = StatusCodes.Status417ExpectationFailed, errors = e.Message + "~Login Controller" });
+            }
+        }
         [Route("Login")]
         [HttpPost]
         public ActionResult Login(LoginForm loginForm)

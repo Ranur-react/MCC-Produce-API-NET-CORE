@@ -123,6 +123,7 @@ const submit = (type) => {
         var password = $("#PasswordEdit").val();
         if (password != null) {
             //1.Panggil method api update Password
+            console.log("Update Password on Progress . . ");
         }
     }
 
@@ -319,7 +320,33 @@ $(document).ready(function () {
 const Details = (data) => {
     var table = "";
     $.each(data, (k, val) => {
-        table += `<tr><td class="text-left">${k.toUpperCase()}</td><td class="text-left">: ${val}</td></tr>`;
+        if (val != null && typeof val !== 'object') {
+
+            table += `<tr><td class="text-left">${k.toUpperCase()}</td><td class="text-left">: ${k =='gender'?val==0?'Laki-Laki':'Perempuan':val}</td></tr>`;
+        } else {
+            if (val != null && typeof val === 'object') {
+                console.log("ini Object");
+                $.each(val.profiling.education, (k, val) => {
+                    let attribute = k.toUpperCase();
+                    if (!attribute.includes("ID")) {
+                        if (val != null && typeof val !== 'object') {
+                            table += `<tr><td class="text-left">${k.toUpperCase()}</td><td class="text-left">: ${val}</td></tr>`;
+                        }
+                    }
+                    if (val != null && typeof val === 'object') {
+                        console.log(val);
+                        $.each(val, (k, val) => {
+                            let attribute = k.toUpperCase();
+                            if (!attribute.includes("ID")) {
+                                if (val != null && typeof val !== 'object') {
+                                    table += `<tr><td class="text-left">${k.toUpperCase()}</td><td class="text-left">: ${val}</td></tr>`;
+                                }
+                            }
+                        })
+                    }
+                })
+            }
+        }
     });
 
     const swalWithBootstrapButtons = Swal.mixin({

@@ -21,23 +21,18 @@
                             <form class="user" action="/Accounts/Auth" method="POST">
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user"
-                                           id="exampleInputEmail" name="Email" aria-describedby="emailHelp"
+                                           id="Email" name="Email" aria-describedby="emailHelp"
                                            placeholder="Enter Email Address...">
+                                    <div id="EmailHelp" class="form-text text-danger"></div>
+
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="Password" class="form-control form-control-user"
-                                           id="exampleInputPassword" placeholder="Password">
+                                           id="Password" placeholder="Password">
+                                    <div id="PasswordHelp" class="form-text text-danger"></div>
                                 </div>
-                                <div class="form-group">
-                                    <div class="custom-control custom-checkbox small">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                                        <label class="custom-control-label" for="customCheck">
-                                            Remember
-                                            Me
-                                        </label>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                @*<button type="submit" class="btn btn-primary btn-user btn-block">Login</button>*@
+                                <button type="button"  onclick="LoginAuth();"  class="btn btn-primary btn-user btn-block button-login">Login Json</button>
                                 
                                 <hr>
                                 <a href="#" class="btn btn-google btn-user btn-block">
@@ -60,3 +55,63 @@
     </div>
 
 </div>
+<script>
+    const LoginAuth = () => {
+        var obj = new Object();
+        obj.Email = $('#Email').val();
+        obj.Password = $('#Password').val();
+        console.log("Inputan  . . .")
+        console.log(obj)
+        $.ajax({
+            url: "/Accounts/AuthLogin",
+            type: "post",
+            data: obj,
+            beforeSend: (e) => {
+                $('.button-login').html("Loading . . ");
+                $('.button-login').attr("disabled",true)
+            },
+
+        }).done((e) => {
+            $('.button-login').html("Login");
+            $('.button-login').attr("disabled", false)
+
+            console.log(e);
+            result = e;
+            if (result.status == 200) {
+                poUPAlertSweet("success", "Login Success", '', "center").then(function () {
+                    window.location = "/Dashboard";
+                });
+                $(`#EmailAdd`).val("");
+                $(`#PasswordAdd`).val("");
+
+                $(`#EmailHelp`).text("");
+                $(`#PasswordHelp`).text("");
+
+            } else {
+                if (result.status == 400) {
+                    $(`#EmailHelp`).text("");
+                    $(`#PasswordHelp`).text("");
+                    if (result.result == 2) {
+                        $("#EmailHelp").text(result.message);
+                    } else if (result.result == 3) {
+                        $("#PasswordHelp").text(result.message);
+                    }
+                } else {
+                    poUPAlertSweet("error", "Gagal", JSON.stringify(result.errors), "center")
+                }
+            }
+        }).fail((f) => {
+            poUPAlertSweet("error", "Gagal", JSON.stringify(f), "center")
+        });
+    }
+    const poUPAlertSweet = (state, title, texts, positions) => {
+        return Swal.fire({
+            position: positions,
+            icon: state,
+            title: title,
+            text: texts,
+            showConfirmButton: false,
+            timer: 2000
+        });
+    }
+</script>
