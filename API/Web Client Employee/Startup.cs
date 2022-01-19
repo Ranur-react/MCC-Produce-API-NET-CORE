@@ -10,6 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Web_Client_Employee.Base;
@@ -75,6 +76,24 @@ namespace Web_Client_Employee
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseStatusCodePages(async context => {
+                var request = context.HttpContext.Request;
+                var response = context.HttpContext.Response;
+
+                if (response.StatusCode == (int)HttpStatusCode.Unauthorized)
+                {
+                    response.Redirect("/Home/UnAuthorized?returnUrl=" + request.Path);
+                }
+                else if (response.StatusCode == (int)HttpStatusCode.NotFound)
+                {
+                    response.Redirect("/Home/Notfound");
+                }
+                else if (response.StatusCode == (int)HttpStatusCode.Forbidden)
+                {
+                    response.Redirect("/Home/Forbidden");
+                }
+
+            });
             app.UseSession();
             app.UseRouting();
             app.Use(async (context, next) =>
@@ -88,6 +107,7 @@ namespace Web_Client_Employee
             });
             app.UseAuthentication();
             app.UseAuthorization();
+           
 
             app.UseEndpoints(endpoints =>
             {

@@ -16,7 +16,7 @@
                     <div class="col-lg-6">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">SignIn</h1>
+                                <h1 class="h4 text-gray-900 mb-4">@ViewData["WelComeTitle"]</h1>
                             </div>
                             <form class="user" action="/Accounts/Auth" method="POST">
                                 <div class="form-group">
@@ -32,7 +32,7 @@
                                     <div id="PasswordHelp" class="form-text text-danger"></div>
                                 </div>
                                 @*<button type="submit" class="btn btn-primary btn-user btn-block">Login</button>*@
-                                <button type="button"  onclick="LoginAuth();"  class="btn btn-primary btn-user btn-block button-login">Login Json</button>
+                                <button type="button"  onclick="LoginAuth('@ViewData["returnUrl"]');"  class="btn btn-primary btn-user btn-block button-login">Login Json</button>
                                 
                                 <hr>
                                 <a href="#" class="btn btn-google btn-user btn-block">
@@ -56,7 +56,7 @@
 
 </div>
 <script>
-    const LoginAuth = () => {
+    const LoginAuth = (returnUrl) => {
         var obj = new Object();
         obj.Email = $('#Email').val();
         obj.Password = $('#Password').val();
@@ -76,10 +76,12 @@
             $('.button-login').attr("disabled", false)
 
             console.log(e);
+            console.log("Destinations");
+            console.log(!returnUrl);
             result = e;
             if (result.status == 200) {
-                poUPAlertSweet("success", "Login Success", '', "center").then(function () {
-                    window.location = "/Dashboard";
+                poUPAlertSweet("success", !returnUrl ? "Login Success" : "Kembali Login", '', "center").then(function () {
+                    window.location = !returnUrl ? "/Dashboard" : `${returnUrl}`;
                 });
                 $(`#EmailAdd`).val("");
                 $(`#PasswordAdd`).val("");

@@ -5,8 +5,24 @@
 @section Header{
     <div class="row mb-3">
         <div class="col-sm-4">
-            <button type="button" data-toggle="modal" data-target="#AddModal" class="btn btn-outline-warning "> <i class="fas fa-plus"></i> Tambah Data Master</button>
-            <button type="button" class="btn btn-outline-primary " onclick="window.location.href='/Accounts/Register/?src=admin'"> <i class="fas fa-user"></i> New Employees</button>
+            @if (User.IsInRole("Employee"))
+            {
+                if (User.IsInRole("Director"))
+                {
+                    <button type="button" data-toggle="modal" data-target="#AddModal" class="btn btn-outline-warning "> <i class="fas fa-plus"></i> Tambah Data Master</button>
+                    <button type="button" class="btn btn-outline-primary " onclick="window.location.href='/Accounts/Register/?src=admin'"> <i class="fas fa-user"></i> New Employees</button>
+                }
+                else if (User.IsInRole("Manager"))
+                {
+                    <button type="button" class="btn btn-outline-primary " onclick="window.location.href='/Accounts/Register/?src=admin'"> <i class="fas fa-user"></i> New Employees</button>
+                }
+                else
+                {
+                    <div>Login As Employees</div>
+
+                }
+            }
+
         </div>
         <div class="col-sm-8"></div>
     </div>

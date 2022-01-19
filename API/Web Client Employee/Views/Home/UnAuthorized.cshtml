@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = "_LayoutSBLogin";
+}
+
+<!-- Main Content -->
+<div id="content">
+
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
+
+        <!-- 404 Error Text -->
+        <div class="text-center">
+            <div class="error mx-auto" data-text="404">401</div>
+            <p class="lead text-gray-800 mb-5">Not Permitted to access page</p>
+            <div class="error mx-auto timers" >5</div>
+            <p class="text-gray-500 mb-0">You must Login if u wanna be entry that's secure pages</p>
+            <a href="/Logins">&rarr; Try Login</a>
+        </div>
+
+    </div>
+    <!-- /.container-fluid -->
+</div>
+<script>
+    window.onload = () => {
+    var time = 5;
+        console.log("Start . .");
+        var timer=setInterval(() => {
+            time--;
+            console.log(time);
+            $('.timers').text(time);
+            if (time < 1) {
+                clearInterval(timer);
+                GoLogin('@ViewData["returnUrl"]');
+            }
+        },1000);
+
+    }
+    const GoLogin = (returnUrl) => {
+        dest = "";
+        if (returnUrl) {
+            dest = "?returnUrl=" + returnUrl
+        }
+        window.location.href = "/Logins" + dest;
+    }
+</script>
+<!-- End of Main Content -->

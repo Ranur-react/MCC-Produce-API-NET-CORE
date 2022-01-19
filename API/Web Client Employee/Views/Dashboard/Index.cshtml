@@ -10,6 +10,47 @@
         <div class="col-sm-8"></div>
     </div>
 }
+@if (User.IsInRole("Employee"))
+{
+    if (User.IsInRole("Director"))
+    {
+<div class="row justify-content-center">
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Employees'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-secondary"><i class="fas fa-user-tie"></i></h1>
+                    Employeees
+                </div>
+            </a>
+        </div>
+    </div>
+    
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Employees/Chart'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-info"><i class="fas fa-chart-pie"></i></h1>
+                    Employees Report
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Employees/JobChart'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-info"><i class="fas fa-chart-line"></i></h1>
+                    Jobs Report
+                </div>
+            </a>
+        </div>
+    </div>
+
+</div>
+    }
+    else if (User.IsInRole("Manager"))
+    {
 <div class="row justify-content-center">
     <div class="col-lg-3 mb-4">
         <div class="card bg-light text-black shadow">
@@ -92,10 +133,58 @@
         </div>
     </div>
 
-
+</div>
+    }
+    else
+    {
+<div class="row justify-content-center">
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Task/Pokemon'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-secondary"><i class="fas fa-laptop-code"></i></h1>
+                    API Pokemon Task
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Task'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-secondary"><i class="fas fa-laptop-code"></i></h1>
+                    API Static Consume Task
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Task/Chart'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-info"><i class="fas fa-chart-pie"></i></h1>
+                    Chart Consums Task
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 mb-4">
+        <div class="card bg-light text-black shadow">
+            <a href="#" ondblclick="window.location.href='/Employees/Chart'" class="btn btn-block">
+                <div class="card-body text-center">
+                    <h1 class="h1 mb-1 text-info"><i class="fas fa-chart-pie"></i></h1>
+                    Employees Report
+                </div>
+            </a>
+        </div>
+    </div>
 
 
 </div>
+
+    }
+}
+
 @*end modal*@
 @section Scripts{
     <script src="~/js/Helper/Curency.js"></script>

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -54,6 +56,7 @@
                 <a class="nav-link" href="/Dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
+
                 </a>
             </li>
 
@@ -66,45 +69,99 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#h1"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>CRUD</span>
-                </a>
-                <div id="h1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Master</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">University List</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">Role List</a>
-                        <h6 class="collapse-header">Employees</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">Employee List</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="Chart">Employee Report</a>
-                        <h6 class="collapse-header">Register Account</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="Accounts" asp-action="index">Account List</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Accounts" asp-action="Chart">Accounts Report</a>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#h2"
-                   aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Task</span>
-                </a>
-                <div id="h2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Options</h6>
-                        <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="index">API Consume Task</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="Pokemon">Pokemon</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="DataTable">Employee List</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="Chart">Chart</a>
-                        <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="ChartEmployees">Employees Chart</a>
+            @if (User.IsInRole("Employee"))
+            {
+                if (User.IsInRole("Director"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#h1"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>CRUD</span>
+                        </a>
+                        <div id="h1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Master</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">University List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">Role List</a>
+                                <h6 class="collapse-header">Employees</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">Employee List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="Chart">Employee Report</a>
+                                <h6 class="collapse-header">Register Account</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Accounts" asp-action="index">Account List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Accounts" asp-action="Chart">Accounts Report</a>
+                            </div>
+                        </div>
+                    </li>
+                }
+                else if (User.IsInRole("Manager"))
+                {
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#h1"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>CRUD</span>
+                        </a>
+                        <div id="h1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Master</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">University List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">Role List</a>
+                                <h6 class="collapse-header">Employees</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="index">Employee List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Employees" asp-action="Chart">Employee Report</a>
+                                <h6 class="collapse-header">Register Account</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Accounts" asp-action="index">Account List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Accounts" asp-action="Chart">Accounts Report</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#h2"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Task</span>
+                        </a>
+                        <div id="h2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Options</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="index">API Consume Task</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="Pokemon">Pokemon</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="DataTable">Employee List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="Chart">Chart</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="ChartEmployees">Employees Chart</a>
 
 
-                    </div>
-                </div>
-            </li>
+                            </div>
+                        </div>
+                    </li>
+                }
+                else
+                {
+
+                    <li class="nav-item">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#h2"
+                           aria-expanded="true" aria-controls="collapseTwo">
+                            <i class="fas fa-fw fa-cog"></i>
+                            <span>Task</span>
+                        </a>
+                        <div id="h2" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                            <div class="bg-white py-2 collapse-inner rounded">
+                                <h6 class="collapse-header">Options</h6>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="index">API Consume Task</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="Pokemon">Pokemon</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="DataTable">Employee List</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="Chart">Chart</a>
+                                <a class="collapse-item" asp-area="" asp-controller="Task" asp-action="ChartEmployees">Employees Chart</a>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+                }
+            }
+
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <!-- Divider -->
@@ -133,27 +190,22 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search 
+                    <!-- Topbar Search
                         ...
                         -->
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS)
                             ...
                             -->
-         
-
-                        <!-- Nav Item - Alerts 
+                        <!-- Nav Item - Alerts
                             ...
                             -->
-                        
-
-                        <!-- Nav Item - Messages 
+                        <!-- Nav Item - Messages
                             ....
                             -->
-                        
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -161,7 +213,26 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @if (User.IsInRole("Employee"))
+                                    {
+                                        if (User.IsInRole("Director"))
+                                        {
+                                            <div>Login As Director</div>
+                                        }
+                                        else if (User.IsInRole("Manager"))
+                                        {
+                                            <div>Login As Manager</div>
+                                        }
+                                        else
+                                        {
+                                            <div>Login As Employees</div>
+
+                                        }
+                                    }
+
+
+                                </span>
                                 <img class="img-profile rounded-circle"
                                      src="~/Template/sbAdmin2/img/undraw_profile.svg">
                             </a>

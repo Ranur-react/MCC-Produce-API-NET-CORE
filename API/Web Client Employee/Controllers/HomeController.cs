@@ -27,7 +27,22 @@ namespace Web_Client_Employee.Controllers
         {
             return View();
         }
-
+        public IActionResult UnAuthorized(string returnUrl)
+        {
+            ViewData["returnUrl"] = returnUrl;
+            return View();
+        }
+        
+        public IActionResult Forbidden(string returnUrl)
+        {
+            ViewData["returnUrl"] = returnUrl;
+            return View();
+        }
+        public IActionResult Notfound(string returnUrl)
+        {
+            ViewData["returnUrl"] = returnUrl;
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

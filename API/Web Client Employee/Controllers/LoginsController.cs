@@ -8,8 +8,12 @@ namespace Web_Client_Employee.Controllers
 {
     public class LoginsController : Controller
     {
-        public IActionResult Index()
+
+        public IActionResult Index(string returnUrl)
         {
+            ViewData["returnUrl"] = returnUrl;
+            ViewData["WelComeTitle"] = returnUrl == null ? "Login" : "Relogin" ;
+
             return View();
         }
     }
